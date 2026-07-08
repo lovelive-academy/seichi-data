@@ -1,9 +1,27 @@
+const ALLOWED_MAPS_HOSTS = new Set([
+	"maps.app.goo.gl",
+	"www.google.com",
+	"maps.google.com",
+	"google.com",
+]);
+
 export async function parseGoogleMapsUrl(
 	url: string,
 ): Promise<{ lat: number; lng: number } | null> {
+	let parsedUrl: URL;
+	try {
+		parsedUrl = new URL(url);
+	} catch {
+		return null;
+	}
+
+	if (!ALLOWED_MAPS_HOSTS.has(parsedUrl.hostname)) {
+		return null;
+	}
+
 	let resolvedUrl = url;
 
-	if (url.includes("maps.app.goo.gl")) {
+	if (parsedUrl.hostname === "maps.app.goo.gl") {
 		const response = await fetch(url, { method: "HEAD", redirect: "follow" });
 		resolvedUrl = response.url;
 	}

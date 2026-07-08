@@ -1,45 +1,37 @@
+// https://discord.js.org/docs/packages/discord.js/main
+import type {
+	APIApplicationCommandInteractionDataAttachmentOption,
+	APIApplicationCommandInteractionDataStringOption,
+	APIChatInputApplicationCommandInteraction,
+	APIInteraction,
+} from "discord.js";
+import {
+	ApplicationCommandOptionType,
+	ApplicationCommandType,
+	InteractionResponseType,
+	InteractionType,
+} from "discord.js";
 import { checkMemberAge, verifyDiscordSignature } from "./src/discord.ts";
 import { createSpotPR } from "./src/github.ts";
 import { processImage } from "./src/image.ts";
 import { parseGoogleMapsUrl } from "./src/maps.ts";
 
-const SERIES_NAMES: Record<string, string> = {
-	lovelive: "ラブライブ！",
-	sunshine: "ラブライブ！サンシャイン!!",
-	nijigasaki: "ラブライブ！虹ヶ咲学園スクールアイドル同好会",
-	superstar: "ラブライブ！スーパースター!!",
-	hasunosora: "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
-	musical: "スクールアイドルミュージカル",
-	ikizulive: "イキヅライブ！LOVELIVE! BLUEBIRD",
-};
+const seriesJson = JSON.parse(await Deno.readTextFile("./public/series.json"));
+const SERIES_NAMES: Record<string, string> = Object.fromEntries(
+	seriesJson.series.map((s: { id: string; name: string }) => [s.id, s.name]),
+);
 
-interface DiscordOption {
-	name: string;
-	value: string;
-}
-
-interface DiscordAttachment {
-	url: string;
-}
-
-interface DiscordInteraction {
-	type: number;
-	token: string;
-	application_id: string;
-	data?: {
-		options: DiscordOption[];
-		resolved?: {
-			attachments?: Record<string, DiscordAttachment>;
-		};
-	};
-	member?: {
-		user: { id: string; username: string };
-	};
-	user?: { id: string; username: string };
+function isChatInputCommand(
+	interaction: APIInteraction,
+): interaction is APIChatInputApplicationCommandInteraction {
+	return (
+		interaction.type === InteractionType.ApplicationCommand &&
+		interaction.data.type === ApplicationCommandType.ChatInput
+	);
 }
 
 async function handleSpotCommand(
-	interaction: DiscordInteraction,
+	interaction: APIChatInputApplicationCommandInteraction,
 ): Promise<void> {
 	const followUp = async (content: string) => {
 		await fetch(
@@ -53,20 +45,35 @@ async function handleSpotCommand(
 	};
 
 	try {
-		const options = interaction.data?.options ?? [];
-		const getOption = (name: string) =>
-			options.find((o) => o.name === name)?.value;
-		const getRequiredOption = (name: string): string => {
-			const value = getOption(name);
+		const options = interaction.data.options ?? [];
+
+		const getStringOption = (name: string): string | undefined => {
+			const option = options.find(
+				(o): o is APIApplicationCommandInteractionDataStringOption =>
+					o.name === name && o.type === ApplicationCommandOptionType.String,
+			);
+			return option?.value;
+		};
+
+		const getAttachmentId = (name: string): string | undefined => {
+			const option = options.find(
+				(o): o is APIApplicationCommandInteractionDataAttachmentOption =>
+					o.name === name && o.type === ApplicationCommandOptionType.Attachment,
+			);
+			return option?.value;
+		};
+
+		const getRequiredStringOption = (name: string): string => {
+			const value = getStringOption(name);
 			if (!value) throw new Error(`Missing required option: ${name}`);
 			return value;
 		};
 
-		const series = getRequiredOption("series");
-		const description = getRequiredOption("description");
-		const mapsUrl = getRequiredOption("maps_url");
-		const episode = getOption("episode") ?? null;
-		const imageOptionId = getOption("image") ?? null;
+		const series = getRequiredStringOption("series");
+		const description = getRequiredStringOption("description");
+		const mapsUrl = getRequiredStringOption("maps_url");
+		const episode = getStringOption("episode") ?? null;
+		const imageOptionId = getAttachmentId("image") ?? null;
 
 		const user = interaction.member?.user ?? interaction.user;
 		if (!user) throw new Error("No user in interaction");
@@ -125,20 +132,25 @@ Deno.serve(async (req: Request) => {
 	const { valid, body } = await verifyDiscordSignature(req);
 	if (!valid) return new Response(null, { status: 401 });
 
-	const interaction: DiscordInteraction = JSON.parse(body);
+	const interaction: APIInteraction = JSON.parse(body);
 
-	if (interaction.type === 1) {
-		return new Response(JSON.stringify({ type: 1 }), {
-			headers: { "Content-Type": "application/json" },
-		});
+	if (interaction.type === InteractionType.Ping) {
+		return new Response(
+			JSON.stringify({ type: InteractionResponseType.Pong }),
+			{ headers: { "Content-Type": "application/json" } },
+		);
 	}
 
-	if (interaction.type === 2) {
+	if (isChatInputCommand(interaction)) {
 		handleSpotCommand(interaction).catch(console.error);
 
-		return new Response(JSON.stringify({ type: 5, data: { flags: 64 } }), {
-			headers: { "Content-Type": "application/json" },
-		});
+		return new Response(
+			JSON.stringify({
+				type: InteractionResponseType.DeferredChannelMessageWithSource,
+				data: { flags: 64 },
+			}),
+			{ headers: { "Content-Type": "application/json" } },
+		);
 	}
 
 	return new Response(null, { status: 400 });

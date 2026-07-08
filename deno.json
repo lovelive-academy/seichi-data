@@ -1,11 +1,15 @@
 {
 	"tasks": {
-		"dev": "deno run --watch main.ts"
+		"dev": "deno run --watch main.ts",
+		"register": "deno run --allow-net --allow-env --allow-read scripts/register-commands.ts",
+		"check": "dx biome check .",
+		"check:unsafe": "dx biome check --write --unsafe ."
 	},
 	"imports": {
 		"@biomejs/biome": "npm:@biomejs/biome@^2.5.2",
 		"@std/assert": "jsr:@std/assert@1",
 		"discord-interactions": "npm:discord-interactions",
+		"discord.js": "npm:discord.js@^14.26.4",
 		"octokit": "npm:octokit",
 		"@octokit/auth-app": "npm:@octokit/auth-app",
 		"imagescript": "jsr:@matmen/imagescript"
