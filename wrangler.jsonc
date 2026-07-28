@@ -3,5 +3,11 @@
 	"main": "main.ts",
 	// Set this to today's date
 	"compatibility_date": "2026-07-27",
-	"compatibility_flags": ["nodejs_compat"]
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": {
+		"logs": {
+			"enabled": false,
+			"invocation_logs": true
+		}
+	}
 }
