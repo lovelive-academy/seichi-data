@@ -3,6 +3,7 @@
   "specifiers": {
     "npm:@biomejs/biome@^2.5.6": "2.5.6",
     "npm:@cf-wasm/photon@~0.3.7": "0.3.7",
+    "npm:@cloudflare/workers-types@^5.20260728.1": "5.20260728.1",
     "npm:@octokit/auth-app@^8.2.0": "8.2.0",
     "npm:discord-interactions@^4.4.0": "4.4.0",
     "npm:discord.js@^14.27.0": "14.27.0",
@@ -72,6 +73,9 @@
       "dependencies": [
         "@cf-wasm/internals"
       ]
+    },
+    "@cloudflare/workers-types@5.20260728.1": {
+      "integrity": "sha512-rZqmesLEH40Xt67PpQSj+iJqwkYBzVr7U/UOa5twkToMsxO5pYsPw2QAaTKDdiCSiki9fWAgsWTj9OmFnbwLRQ=="
     },
     "@discordjs/builders@1.14.1": {
       "integrity": "sha512-gSKkhXLqs96TCzk66VZuHHl8z2bQMJFGwrXC0f33ngK+FLNau4hU1PYny3DNJfNdSH+gVMzE85/d5FQ2BpcNwQ==",
@@ -452,6 +456,7 @@
       "dependencies": [
         "npm:@biomejs/biome@^2.5.6",
         "npm:@cf-wasm/photon@~0.3.7",
+        "npm:@cloudflare/workers-types@^5.20260728.1",
         "npm:@octokit/auth-app@^8.2.0",
         "npm:discord-interactions@^4.4.0",
         "npm:discord.js@^14.27.0",

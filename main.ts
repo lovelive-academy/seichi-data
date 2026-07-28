@@ -1,3 +1,4 @@
+import type { ExecutionContext } from "@cloudflare/workers-types";
 import type {
 	APIApplicationCommandInteractionDataAttachmentOption,
 	APIApplicationCommandInteractionDataStringOption,
@@ -149,7 +150,11 @@ async function handleSpotCommand(
 }
 
 export default {
-	async fetch(req: Request, env: Env): Promise<Response> {
+	async fetch(
+		req: Request,
+		env: Env,
+		ctx: ExecutionContext,
+	): Promise<Response> {
 		if (
 			req.method !== "POST" ||
 			new URL(req.url).pathname !== "/interactions"
@@ -170,7 +175,7 @@ export default {
 		}
 
 		if (isChatInputCommand(interaction)) {
-			handleSpotCommand(interaction, env).catch(console.error);
+			ctx.waitUntil(handleSpotCommand(interaction, env).catch(console.error));
 
 			return new Response(
 				JSON.stringify({

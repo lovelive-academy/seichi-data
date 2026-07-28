@@ -1,4 +1,5 @@
 import { verifyKey } from "discord-interactions";
+import { z } from "zod";
 import type { Env } from "../main.ts";
 import { getEnv } from "./env.ts";
 
@@ -33,9 +34,10 @@ export async function checkMemberAge(
 
 	if (!response.ok) return false;
 
-	const member = await response.json();
-	if (!member?.joined_at) return false;
-	const joinedAt = new Date(member.joined_at).getTime();
+	const memberSchema = z.object({ joined_at: z.string() });
+	const member = memberSchema.safeParse(await response.json());
+	if (!member.success) return false;
+	const joinedAt = new Date(member.data.joined_at).getTime();
 	const daysSinceJoin = (Date.now() - joinedAt) / (1000 * 60 * 60 * 24);
 
 	return daysSinceJoin >= 3;
