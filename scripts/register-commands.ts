@@ -1,5 +1,3 @@
-// https://discord.js.org/docs/packages/discord.js/main/REST:Class
-// https://discord.js.org/docs/packages/discord.js/main/SlashCommandBuilder:Class
 import { REST, Routes, SlashCommandBuilder } from "discord.js";
 import seriesJson from "../public/series.json" with { type: "json" };
 

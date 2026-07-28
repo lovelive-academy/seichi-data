@@ -1,10 +1,10 @@
-// https://github.com/discord/discord-interactions-js
 import { verifyKey } from "discord-interactions";
+import type { Env } from "../main.ts";
 import { getEnv } from "./env.ts";
 
 export async function verifyDiscordSignature(
 	req: Request,
-	env: Record<string, string>,
+	env: Env,
 ): Promise<{ valid: boolean; body: string }> {
 	const signature = req.headers.get("X-Signature-Ed25519") ?? "";
 	const timestamp = req.headers.get("X-Signature-Timestamp") ?? "";
@@ -21,7 +21,7 @@ export async function verifyDiscordSignature(
 
 export async function checkMemberAge(
 	userId: string,
-	env: Record<string, string>,
+	env: Env,
 ): Promise<boolean> {
 	const guildId = getEnv(env, "DISCORD_GUILD_ID");
 	const token = getEnv(env, "DISCORD_BOT_TOKEN");

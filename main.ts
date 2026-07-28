@@ -1,4 +1,3 @@
-// https://discord.js.org/docs/packages/discord.js/main
 import type {
 	APIApplicationCommandInteractionDataAttachmentOption,
 	APIApplicationCommandInteractionDataStringOption,
@@ -11,7 +10,7 @@ import {
 	InteractionResponseType,
 	InteractionType,
 } from "discord.js";
-import seriesJson from "./public/series.json";
+import seriesJson from "./public/series.json" with { type: "json" };
 import { checkMemberAge, verifyDiscordSignature } from "./src/discord.ts";
 import { createSpotPR } from "./src/github.ts";
 import { processImage } from "./src/image.ts";

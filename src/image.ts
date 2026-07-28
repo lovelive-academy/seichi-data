@@ -1,4 +1,3 @@
-// https://raw.githubusercontent.com/matmen/ImageScript/master/ImageScript.js
 import { Image } from "imagescript";
 
 export async function processImage(url: string): Promise<Uint8Array> {

@@ -1,28 +1,11 @@
-// https://github.com/octokit/auth-app.js
 import { createAppAuth } from "@octokit/auth-app";
-// https://octokit.github.io/rest.js/
+import { encodeBase64 } from "@std/encoding";
 import { Octokit } from "octokit";
+import type { Env } from "../main.ts";
 import { getEnv } from "./env.ts";
 import type { SpotData } from "./schema.ts";
 
-function bytesToBase64(bytes: Uint8Array): string {
-	let binary = "";
-	for (const byte of bytes) {
-		binary += String.fromCharCode(byte);
-	}
-	return btoa(binary);
-}
-
-function jsonToBase64(obj: unknown): string {
-	const bytes = new TextEncoder().encode(JSON.stringify(obj, null, 2));
-	let binary = "";
-	for (const byte of bytes) {
-		binary += String.fromCharCode(byte);
-	}
-	return btoa(binary);
-}
-
-function createOctokit(env: Record<string, string>): Octokit {
+function createOctokit(env: Env): Octokit {
 	return new Octokit({
 		authStrategy: createAppAuth,
 		auth: {
@@ -33,11 +16,7 @@ function createOctokit(env: Record<string, string>): Octokit {
 	});
 }
 
-// https://docs.github.com/en/rest/repos/contents
-export async function createSpotPR(
-	spot: SpotData,
-	env: Record<string, string>,
-): Promise<string> {
+export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 	const octokit = createOctokit(env);
 	const owner = getEnv(env, "GITHUB_REPO_OWNER");
 	const repo = getEnv(env, "GITHUB_REPO_NAME");
@@ -94,7 +73,7 @@ export async function createSpotPR(
 		repo,
 		path: `public/${spot.series}.geojson`,
 		message: `Add spot: ${spot.title}`,
-		content: jsonToBase64(geojson),
+		content: encodeBase64(geojson),
 		sha: existingFile.sha,
 		branch: branchName,
 	});
@@ -105,7 +84,7 @@ export async function createSpotPR(
 			repo,
 			path: `public/images/${uuid}.jpg`,
 			message: `Add image for spot: ${spot.title}`,
-			content: bytesToBase64(spot.imageBytes),
+			content: encodeBase64(spot.imageBytes),
 			branch: branchName,
 		});
 	}

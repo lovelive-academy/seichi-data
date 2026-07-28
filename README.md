@@ -4,14 +4,13 @@ Discord のスラッシュコマンドから聖地情報を投稿し、GitHub PR
 
 ```
 Discord /spot コマンド
-  -> Deno Deploy (署名検証 / 座標パース / 画像圧縮)
+  -> Cloudflare Workers (署名検証 / 座標パース / 画像圧縮)
   -> GitHub PR (レビュー待ち)
   -> マージ後にマップ反映
 ```
 
 ## 前提条件
 
-- [Deno](https://deno.land/) がインストールされていること
 - Discord Application (Bot) が作成済みであること
 - GitHub App が作成済みであること
 
@@ -70,27 +69,23 @@ deno task register
 deno task dev
 ```
 
-サーバーが起動したら、[ngrok](https://ngrok.com/) などを使用してローカルサーバーを公開し、Discord 開発者ポータルの Interactions Endpoint URL に設定してください。
+## Workers Builds へのデプロイ
 
-```sh
-ngrok http 8000
-```
+### 1. Workers プロジェクトの作成と GitHub 連携
 
-## Deno Deploy へのデプロイ
-
-### 1. プロジェクトの作成
-
-[Deno Deploy](https://deno.com/deploy) でプロジェクトを作成し、このリポジトリと連携してください。エントリポイントは `main.ts` を指定します。
+1. Workers & Pages > Create application > Workers を選択
+2. "Connect to Git" を選択し、このリポジトリを連携
+3. ビルド設定は自動検出されます (`wrangler.jsonc` が使用されます)
 
 ### 2. 環境変数の設定
 
-Deno Deploy のプロジェクト設定から、`.env` に記載した全ての環境変数を設定してください。
+Cloudflare Dashboard の Workers プロジェクト設定 > Settings > Variables and Secrets から、`.env` に記載した全ての環境変数を設定してください。
 
 ### 3. Interactions Endpoint URL の設定
 
-デプロイ後に発行される URL (`https://<project>.deno.dev`) を Discord 開発者ポータルの以下の項目に設定してください。
+デプロイ後に発行される URL (`https://<project>.<subdomain>.workers.dev`) を Discord 開発者ポータルの以下の項目に設定してください。
 
-- General Information > Interactions Endpoint URL: `https://<project>.deno.dev/interactions`
+- General Information > Interactions Endpoint URL: `https://<project>.<subdomain>.workers.dev/interactions`
 
 ## タスク一覧
 
