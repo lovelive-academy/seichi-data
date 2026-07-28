@@ -1,8 +1,9 @@
+import process from "node:process";
 import { REST, Routes, SlashCommandBuilder } from "discord.js";
 import seriesJson from "../public/series.json" with { type: "json" };
 
 function getEnv(name: string): string {
-	const value = Deno.env.get(name);
+	const value = process.env[name];
 	if (!value) throw new Error(`${name} is not set`);
 	return value;
 }

@@ -1,5 +1,5 @@
+import { Buffer } from "node:buffer";
 import { createAppAuth } from "@octokit/auth-app";
-import { encodeBase64 } from "@std/encoding";
 import { Octokit } from "octokit";
 import type { Env } from "../main.ts";
 import { getEnv } from "./env.ts";
@@ -73,7 +73,7 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 		repo,
 		path: `public/${spot.series}.geojson`,
 		message: `Add spot: ${spot.title}`,
-		content: encodeBase64(geojson),
+		content: Buffer.from(JSON.stringify(geojson)).toString("base64"),
 		sha: existingFile.sha,
 		branch: branchName,
 	});
@@ -84,7 +84,7 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 			repo,
 			path: `public/images/${uuid}.jpg`,
 			message: `Add image for spot: ${spot.title}`,
-			content: encodeBase64(spot.imageBytes),
+			content: Buffer.from(spot.imageBytes).toString("base64"),
 			branch: branchName,
 		});
 	}
