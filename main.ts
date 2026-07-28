@@ -120,6 +120,12 @@ async function handleSpotCommand(
 			const attachment =
 				interaction.data?.resolved?.attachments?.[imageOptionId];
 			if (attachment) {
+				if (attachment.size > 5 * 1024 * 1024) {
+					await followUp(
+						"画像が大きすぎます。5MB以下の画像を使用してください。",
+					);
+					return;
+				}
 				imageBytes = await processImage(attachment.url);
 			}
 		}
