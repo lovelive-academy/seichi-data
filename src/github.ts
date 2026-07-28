@@ -82,7 +82,7 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 		repo,
 		path: `public/${spot.series}.geojson`,
 		message: `Add spot: ${spot.title}`,
-		content: Buffer.from(JSON.stringify(geojson)).toString("base64"),
+		content: Buffer.from(JSON.stringify(geojson, null, 2)).toString("base64"),
 		sha: existingFile.sha,
 		branch: branchName,
 	});
