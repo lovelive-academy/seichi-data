@@ -38,10 +38,16 @@ cp .env.example .env
 | `DISCORD_BOT_TOKEN` | Discord Bot のトークン | Discord 開発者ポータル > Bot |
 | `DISCORD_GUILD_ID` | 対象の Discord サーバー ID | サーバーを右クリック > ID をコピー (開発者モード要) |
 | `GITHUB_APP_ID` | GitHub App の ID | GitHub > Settings > Developer settings > GitHub Apps |
-| `GITHUB_APP_PRIVATE_KEY` | GitHub App の秘密鍵を**base64エンコードしたもの** | GitHub App の設定画面で生成 |
+| `GITHUB_APP_PRIVATE_KEY` | GitHub App の秘密鍵 | GitHub App の設定画面で生成 |
 | `GITHUB_INSTALLATION_ID` | GitHub App のインストール ID | リポジトリへのインストール後、URL から取得 |
 | `GITHUB_REPO_OWNER` | PR を作成するリポジトリのオーナー名 | GitHub リポジトリの URL から取得 |
 | `GITHUB_REPO_NAME` | PR を作成するリポジトリ名 | GitHub リポジトリの URL から取得 |
+
+秘密鍵の登録方法
+
+```bash
+cat private-key.pem | wrangler secret put GITHUB_APP_PRIVATE_KEY
+```
 
 ### 3. Discord Bot の設定
 
