@@ -14,7 +14,7 @@ import {
 import seriesJson from "./public/series.json" with { type: "json" };
 import { checkMemberAge, verifyDiscordSignature } from "./src/discord.ts";
 import { createSpotPR } from "./src/github.ts";
-import { processImage } from "./src/image.ts";
+import { fetchImage } from "./src/image.ts";
 import { parseGoogleMapsUrl } from "./src/maps.ts";
 import { spotInputSchema } from "./src/schema.ts";
 
@@ -126,7 +126,7 @@ async function handleSpotCommand(
 					);
 					return;
 				}
-				imageBytes = await processImage(attachment.url);
+				imageBytes = await fetchImage(attachment.url);
 			}
 		}
 

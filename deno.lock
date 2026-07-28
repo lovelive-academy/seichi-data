@@ -2,7 +2,6 @@
   "version": "5",
   "specifiers": {
     "npm:@biomejs/biome@^2.5.6": "2.5.6",
-    "npm:@cf-wasm/photon@~0.3.7": "0.3.7",
     "npm:@cloudflare/workers-types@^5.20260728.1": "5.20260728.1",
     "npm:@octokit/auth-app@^8.2.0": "8.2.0",
     "npm:discord-interactions@^4.4.0": "4.4.0",
@@ -64,15 +63,6 @@
       "integrity": "sha512-WN05KwXnTO/2J45RQPvzZMXf7tZUIofHoR35xIPfCo7pQ2RFidxI8sfb5mGsaTxdMmEOzHzOPRCdA5/fCpc7xQ==",
       "os": ["win32"],
       "cpu": ["x64"]
-    },
-    "@cf-wasm/internals@0.1.2": {
-      "integrity": "sha512-9d/I3JFv1IpQFYOrIw5RQShQPyuZRw9DyeBylF39Uj/MH7my8+EzKDPpUCHiqZ5O7tZS/A6zwP08egpeI5NBhA=="
-    },
-    "@cf-wasm/photon@0.3.7": {
-      "integrity": "sha512-rMPUUuiIgXVNJFPIexU9aKCudVrsxMmaknmEqY6x9/apcjoHR8im1T+V6USnhy3wDVVtlZZb6z9+ZlHRk+pX2w==",
-      "dependencies": [
-        "@cf-wasm/internals"
-      ]
     },
     "@cloudflare/workers-types@5.20260728.1": {
       "integrity": "sha512-rZqmesLEH40Xt67PpQSj+iJqwkYBzVr7U/UOa5twkToMsxO5pYsPw2QAaTKDdiCSiki9fWAgsWTj9OmFnbwLRQ=="
@@ -455,7 +445,6 @@
     "packageJson": {
       "dependencies": [
         "npm:@biomejs/biome@^2.5.6",
-        "npm:@cf-wasm/photon@~0.3.7",
         "npm:@cloudflare/workers-types@^5.20260728.1",
         "npm:@octokit/auth-app@^8.2.0",
         "npm:discord-interactions@^4.4.0",
