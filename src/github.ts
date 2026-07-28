@@ -1,16 +1,25 @@
 import { Buffer } from "node:buffer";
+import { createPrivateKey } from "node:crypto";
 import { createAppAuth } from "@octokit/auth-app";
 import { Octokit } from "octokit";
 import type { Env } from "../main.ts";
 import { getEnv } from "./env.ts";
 import type { SpotData } from "./schema.ts";
 
+function toP8Pem(pem: string): string {
+	if (!pem.includes("BEGIN RSA PRIVATE KEY")) return pem;
+	return createPrivateKey(pem).export({
+		type: "pkcs8",
+		format: "pem",
+	}) as string;
+}
+
 function createOctokit(env: Env): Octokit {
 	return new Octokit({
 		authStrategy: createAppAuth,
 		auth: {
 			appId: getEnv(env, "GITHUB_APP_ID"),
-			privateKey: getEnv(env, "GITHUB_APP_PRIVATE_KEY"),
+			privateKey: toP8Pem(getEnv(env, "GITHUB_APP_PRIVATE_KEY")),
 			installationId: getEnv(env, "GITHUB_INSTALLATION_ID"),
 		},
 	});
