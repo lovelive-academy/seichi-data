@@ -10,7 +10,7 @@ function createOctokit(env: Env): Octokit {
 		authStrategy: createAppAuth,
 		auth: {
 			appId: getEnv(env, "GITHUB_APP_ID"),
-			privateKey: getEnv(env, "GITHUB_APP_PRIVATE_KEY"),
+			privateKey: atob(getEnv(env, "GITHUB_APP_PRIVATE_KEY")),
 			installationId: getEnv(env, "GITHUB_INSTALLATION_ID"),
 		},
 	});
