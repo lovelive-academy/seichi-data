@@ -2,10 +2,10 @@
   "version": "5",
   "specifiers": {
     "npm:@biomejs/biome@^2.5.6": "2.5.6",
+    "npm:@cf-wasm/photon@~0.3.7": "0.3.7",
     "npm:@octokit/auth-app@^8.2.0": "8.2.0",
     "npm:discord-interactions@^4.4.0": "4.4.0",
     "npm:discord.js@^14.27.0": "14.27.0",
-    "npm:imagescript@^1.3.1": "1.3.1",
     "npm:octokit@^5.0.5": "5.0.5",
     "npm:zod@^4.4.3": "4.4.3"
   },
@@ -63,6 +63,15 @@
       "integrity": "sha512-WN05KwXnTO/2J45RQPvzZMXf7tZUIofHoR35xIPfCo7pQ2RFidxI8sfb5mGsaTxdMmEOzHzOPRCdA5/fCpc7xQ==",
       "os": ["win32"],
       "cpu": ["x64"]
+    },
+    "@cf-wasm/internals@0.1.2": {
+      "integrity": "sha512-9d/I3JFv1IpQFYOrIw5RQShQPyuZRw9DyeBylF39Uj/MH7my8+EzKDPpUCHiqZ5O7tZS/A6zwP08egpeI5NBhA=="
+    },
+    "@cf-wasm/photon@0.3.7": {
+      "integrity": "sha512-rMPUUuiIgXVNJFPIexU9aKCudVrsxMmaknmEqY6x9/apcjoHR8im1T+V6USnhy3wDVVtlZZb6z9+ZlHRk+pX2w==",
+      "dependencies": [
+        "@cf-wasm/internals"
+      ]
     },
     "@discordjs/builders@1.14.1": {
       "integrity": "sha512-gSKkhXLqs96TCzk66VZuHHl8z2bQMJFGwrXC0f33ngK+FLNau4hU1PYny3DNJfNdSH+gVMzE85/d5FQ2BpcNwQ==",
@@ -382,9 +391,6 @@
     "fast-deep-equal@3.1.3": {
       "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
     },
-    "imagescript@1.3.1": {
-      "integrity": "sha512-ue/zxSyEzj7je8Nlt2vjY9GEa2BbScFSRZJq7OTVDZFp0r57fyuxrlsF8qWgxTP+kP8WklTw4by/ZEYVX5S13w=="
-    },
     "json-with-bigint@3.5.10": {
       "integrity": "sha512-Vcx+JVNEBts/xfcoCS69sKrOhOk/3TVlvlT+XzUOefVKnnrbYSCKpDCm10pohsJFtsJVYnwa/cXRZ4eElzaM6w=="
     },
@@ -445,10 +451,10 @@
     "packageJson": {
       "dependencies": [
         "npm:@biomejs/biome@^2.5.6",
+        "npm:@cf-wasm/photon@~0.3.7",
         "npm:@octokit/auth-app@^8.2.0",
         "npm:discord-interactions@^4.4.0",
         "npm:discord.js@^14.27.0",
-        "npm:imagescript@^1.3.1",
         "npm:octokit@^5.0.5",
         "npm:zod@^4.4.3"
       ]
