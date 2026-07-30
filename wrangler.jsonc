@@ -1,8 +1,11 @@
 {
 	"name": "seichi-data",
 	"main": "main.ts",
+	"assets": {
+		"directory": "./dist"
+	},
 	// Set this to today's date
-	"compatibility_date": "2026-07-27",
+	"compatibility_date": "2026-05-25",
 	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
 		"enabled": false,

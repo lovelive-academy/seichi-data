@@ -1,5 +1,6 @@
 {
 	"nodeModulesDir": "auto",
+	"exclude": [".wrangler"],
 	"tasks": {
 		"dev": "deno run --watch main.ts",
 		"register": "deno run --allow-net --allow-env --allow-read --env scripts/register-commands.ts",

@@ -1452,6 +1452,14 @@
       "integrity": "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ=="
     }
   },
+  "redirects": {
+    "https://esm.sh/maplibre-gl": "https://esm.sh/maplibre-gl@6.0.0"
+  },
+  "remote": {
+    "https://esm.sh/gl-matrix@3.4.4": "b103fe3a4ef805410309bb9f31e1197e9c4b081e08aa2733a4018994bc42e26f",
+    "https://esm.sh/gl-matrix@3.4.4/denonext/gl-matrix.mjs": "0a9dfc93bb4842df6a78e30885241c93dc4ab5485c8027f556582fd4eff5856f",
+    "https://esm.sh/maplibre-gl@6.0.0": "9becd25951ab853e02ea7838b73b62aba39d3277dff6f36d8cbe18ba124bb80c"
+  },
   "workspace": {
     "packageJson": {
       "dependencies": [

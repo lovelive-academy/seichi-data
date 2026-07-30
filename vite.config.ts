@@ -9,5 +9,13 @@ export default defineConfig({
 	},
 	build: {
 		target: "esnext",
+		rollupOptions: {
+			external: ["maplibre-gl"],
+			output: {
+				paths: {
+					"maplibre-gl": "https://esm.sh/maplibre-gl@6.0.0",
+				},
+			},
+		},
 	},
 });
