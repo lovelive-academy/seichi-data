@@ -1,6 +1,6 @@
 const Header = () => (
 	<header>
-		<h4>ラブライブ！聖地情報Map</h4>
+		<h3>ラブライブ！聖地情報Map</h3>
 	</header>
 );
 

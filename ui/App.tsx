@@ -1,18 +1,15 @@
 import { createSignal, onMount, Show } from "solid-js";
+import Card from "./components/Card.tsx";
 import FilterBar from "./components/FilterBar.tsx";
 import Header from "./components/Header.tsx";
 import MapView from "./components/MapView.tsx";
-import Sidebar from "./components/Sidebar.tsx";
 import type { Series, SpotFeature } from "./types.ts";
 import { loadSeriesAndFeatures } from "./utils/data.ts";
-import { filterFeatures } from "./utils/filter.ts";
 
 const App = () => {
 	const [series, setSeries] = createSignal<Series[]>([]);
 	const [allFeatures, setAllFeatures] = createSignal<SpotFeature[]>([]);
 	const [filterSeries, setFilterSeries] = createSignal("");
-	const [filterTitle, setFilterTitle] = createSignal("");
-	const [filterEpisode, setFilterEpisode] = createSignal("");
 	const [selected, setSelected] = createSignal<SpotFeature | null>(null);
 
 	onMount(async () => {
@@ -21,16 +18,11 @@ const App = () => {
 		setAllFeatures(features);
 	});
 
-	const filtered = () =>
-		filterFeatures(
-			allFeatures(),
-			filterSeries(),
-			filterTitle(),
-			filterEpisode(),
-		);
-
-	const accentColor = () =>
-		series().find((s) => s.id === filterSeries())?.color;
+	const filtered = () => {
+		const sid = filterSeries();
+		if (!sid) return allFeatures();
+		return allFeatures().filter((f) => f.properties.series === sid);
+	};
 
 	return (
 		<div class="viewer">
@@ -39,22 +31,22 @@ const App = () => {
 				<FilterBar
 					series={series()}
 					seriesId={filterSeries()}
-					title={filterTitle()}
-					episode={filterEpisode()}
-					accentColor={accentColor()}
+					features={filtered()}
 					onSeriesChange={setFilterSeries}
-					onTitleChange={setFilterTitle}
-					onEpisodeChange={setFilterEpisode}
+					onSelect={setSelected}
 				/>
 				<div class="map-area">
-					<MapView
-						features={filtered}
-						series={series()}
-						onFeatureClick={setSelected}
-					/>
+					<Show when={series().length > 0}>
+						<MapView
+							features={filtered}
+							series={series()}
+							selected={selected()}
+							onFeatureClick={setSelected}
+						/>
+					</Show>
 					<Show when={selected()}>
 						{(feature) => (
-							<Sidebar
+							<Card
 								feature={feature()}
 								series={series()}
 								onClose={() => setSelected(null)}

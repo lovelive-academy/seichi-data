@@ -1,41 +1,68 @@
-import { For } from "solid-js";
-import type { Series } from "../types.ts";
+import { createSignal, For, Show } from "solid-js";
+import type { Series, SpotFeature } from "../types.ts";
 
 interface Props {
 	series: Series[];
 	seriesId: string;
-	title: string;
-	episode: string;
-	accentColor: string | undefined;
+	features: SpotFeature[];
 	onSeriesChange: (v: string) => void;
-	onTitleChange: (v: string) => void;
-	onEpisodeChange: (v: string) => void;
+	onSelect: (f: SpotFeature) => void;
 }
 
-const FilterBar = (props: Props) => (
-	<div style={{ display: "flex", gap: "12px" }}>
-		<select
-			value={props.seriesId}
-			onInput={(e) => props.onSeriesChange(e.currentTarget.value)}
-		>
-			<option value="">すべてのシリーズ</option>
-			<For each={props.series}>
-				{(s) => <option value={s.id}>{s.name}</option>}
-			</For>
-		</select>
-		<input
-			type="text"
-			placeholder="施設名検索"
-			value={props.title}
-			onInput={(e) => props.onTitleChange(e.currentTarget.value)}
-		/>
-		<input
-			type="text"
-			placeholder="エピソード検索"
-			value={props.episode}
-			onInput={(e) => props.onEpisodeChange(e.currentTarget.value)}
-		/>
-	</div>
-);
+const FilterBar = (props: Props) => {
+	const [results, setResults] = createSignal<SpotFeature[]>([]);
+
+	const search = (q: string) => {
+		const lower = q.toLowerCase();
+		if (!lower) {
+			setResults([]);
+			return;
+		}
+		setResults(
+			props.features.filter((f) =>
+				f.properties.title.toLowerCase().includes(lower),
+			),
+		);
+	};
+
+	const handleSelect = (f: SpotFeature) => {
+		setResults([]);
+		props.onSelect(f);
+	};
+
+	return (
+		<div>
+			<div style={{ display: "flex", gap: "12px" }}>
+				<select
+					value={props.seriesId}
+					onInput={(e) => props.onSeriesChange(e.currentTarget.value)}
+				>
+					<option value="all">すべてのシリーズ</option>
+					<For each={props.series}>
+						{(s) => <option value={s.id}>{s.name}</option>}
+					</For>
+				</select>
+				<input
+					type="text"
+					placeholder="スポットを検索..."
+					onKeyDown={(e) => {
+						if (e.key === "Enter") search(e.currentTarget.value);
+					}}
+				/>
+			</div>
+			<Show when={results().length > 0}>
+				<ul>
+					<For each={results()}>
+						{(f) => (
+							<li>
+								<a onClick={() => handleSelect(f)}>{f.properties.title}</a>
+							</li>
+						)}
+					</For>
+				</ul>
+			</Show>
+		</div>
+	);
+};
 
 export default FilterBar;

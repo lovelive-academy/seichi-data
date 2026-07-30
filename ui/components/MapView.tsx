@@ -4,19 +4,17 @@ import type { Series, SpotFeature } from "../types.ts";
 
 const SOURCE_ID = "spots";
 const MAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
-const JAPAN_CENTER: [number, number] = [138, 36];
-const JAPAN_ZOOM = 5;
 
 interface Props {
 	features: () => SpotFeature[];
 	series: Series[];
+	selected: SpotFeature | null;
 	onFeatureClick: (feature: SpotFeature) => void;
 }
 
 const MapView = (props: Props) => {
 	let container: HTMLDivElement | undefined;
 	let map: maplibregl.Map | undefined;
-	let ready = false;
 
 	function layerId(seriesId: string): string {
 		return `spots-${seriesId}`;
@@ -74,8 +72,8 @@ const MapView = (props: Props) => {
 		map = new maplibregl.Map({
 			container,
 			style: MAP_STYLE,
-			center: JAPAN_CENTER,
-			zoom: JAPAN_ZOOM,
+			center: [137.5, 36.5],
+			zoom: 5,
 		});
 
 		map.on("load", () => {
@@ -84,23 +82,29 @@ const MapView = (props: Props) => {
 			map?.setPaintProperty("road_motorway", "line-color", "#e64980");
 			map?.setPaintProperty("road_trunk_primary", "line-color", "#e64980");
 
+			const features = props.features();
 			map?.addSource(SOURCE_ID, {
 				type: "geojson",
-				data: { type: "FeatureCollection", features: props.features() },
+				data: { type: "FeatureCollection", features },
 			});
 
 			addSeriesLayers(props.series);
-			ready = true;
 		});
 	});
 
 	createEffect(() => {
 		const features = props.features();
-		if (!ready) return;
 		const source = map?.getSource(SOURCE_ID);
 		if (source instanceof maplibregl.GeoJSONSource) {
 			source.setData({ type: "FeatureCollection", features });
 		}
+	});
+
+	createEffect(() => {
+		const f = props.selected;
+		if (!f || !map) return;
+		const [lng, lat] = f.geometry.coordinates;
+		map.flyTo({ center: [lng, lat], zoom: 15 });
 	});
 
 	return <div ref={container} class="map-container" />;
