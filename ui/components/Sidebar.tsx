@@ -1,3 +1,4 @@
+import { X } from "lucide-solid";
 import { Show } from "solid-js";
 import type { Series, SpotFeature } from "../types.ts";
 
@@ -14,7 +15,7 @@ const Sidebar = (props: Props) => {
 	return (
 		<aside>
 			<button type="button" onClick={props.onClose} aria-label="閉じる">
-				x
+				<X />
 			</button>
 			<Show when={spotSeries()}>
 				<span style={{ background: spotSeries()?.color }}>

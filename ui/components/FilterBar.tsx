@@ -13,7 +13,7 @@ interface Props {
 }
 
 const FilterBar = (props: Props) => (
-	<div style={{ display: "flex", gap: "4rm" }}>
+	<div style={{ display: "flex", gap: "12px" }}>
 		<select
 			value={props.seriesId}
 			onInput={(e) => props.onSeriesChange(e.currentTarget.value)}

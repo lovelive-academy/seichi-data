@@ -1,14 +1,7 @@
 const Header = () => (
-	<nav
-		class="container-fluid"
-		style={{ background: "var(--pico-background-color)" }}
-	>
-		<ul>
-			<li>
-				<strong>ラブライブ！聖地情報Map</strong>
-			</li>
-		</ul>
-	</nav>
+	<header>
+		<h4>ラブライブ！聖地情報Map</h4>
+	</header>
 );
 
 export default Header;

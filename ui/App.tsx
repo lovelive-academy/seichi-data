@@ -35,32 +35,34 @@ const App = () => {
 	return (
 		<div class="viewer">
 			<Header />
-			<FilterBar
-				series={series()}
-				seriesId={filterSeries()}
-				title={filterTitle()}
-				episode={filterEpisode()}
-				accentColor={accentColor()}
-				onSeriesChange={setFilterSeries}
-				onTitleChange={setFilterTitle}
-				onEpisodeChange={setFilterEpisode}
-			/>
-			<div class="map-area">
-				<MapView
-					features={filtered}
+			<main>
+				<FilterBar
 					series={series()}
-					onFeatureClick={setSelected}
+					seriesId={filterSeries()}
+					title={filterTitle()}
+					episode={filterEpisode()}
+					accentColor={accentColor()}
+					onSeriesChange={setFilterSeries}
+					onTitleChange={setFilterTitle}
+					onEpisodeChange={setFilterEpisode}
 				/>
-				<Show when={selected()}>
-					{(feature) => (
-						<Sidebar
-							feature={feature()}
-							series={series()}
-							onClose={() => setSelected(null)}
-						/>
-					)}
-				</Show>
-			</div>
+				<div class="map-area">
+					<MapView
+						features={filtered}
+						series={series()}
+						onFeatureClick={setSelected}
+					/>
+					<Show when={selected()}>
+						{(feature) => (
+							<Sidebar
+								feature={feature()}
+								series={series()}
+								onClose={() => setSelected(null)}
+							/>
+						)}
+					</Show>
+				</div>
+			</main>
 		</div>
 	);
 };

@@ -6,6 +6,7 @@
     "npm:@octokit/auth-app@^8.2.0": "8.2.0",
     "npm:discord-interactions@^4.4.0": "4.4.0",
     "npm:discord.js@^14.27.0": "14.27.0",
+    "npm:lucide-solid@^1.27.0": "1.27.0_solid-js@1.9.14",
     "npm:maplibre-gl@6": "6.0.0",
     "npm:octokit@^5.0.5": "5.0.5",
     "npm:solid-devtools@~0.34.3": "0.34.5_solid-js@1.9.14_vite@7.3.6",
@@ -1177,6 +1178,12 @@
         "yallist"
       ]
     },
+    "lucide-solid@1.27.0_solid-js@1.9.14": {
+      "integrity": "sha512-zbz//eLp8l3coLBkVj3kw/jOS2lP7UMsM7EYRvWhu1NF1buy1hvEUQ5maOLgWXNOCmhqfPP7Zmf1+KcdDwHoYg==",
+      "dependencies": [
+        "solid-js"
+      ]
+    },
     "magic-bytes.js@1.13.1": {
       "integrity": "sha512-x5sn4UX2k5gCWlcfmoFwG4TPie8+dctESyqOBdhB5p6MsgWXdBKGmt9nXPObj/JI50TTL928lc5Yt1WntMn1bw=="
     },
@@ -1468,6 +1475,7 @@
         "npm:@octokit/auth-app@^8.2.0",
         "npm:discord-interactions@^4.4.0",
         "npm:discord.js@^14.27.0",
+        "npm:lucide-solid@^1.27.0",
         "npm:maplibre-gl@6",
         "npm:octokit@^5.0.5",
         "npm:solid-devtools@~0.34.3",

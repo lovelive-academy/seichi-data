@@ -78,9 +78,12 @@ const MapView = (props: Props) => {
 			zoom: JAPAN_ZOOM,
 		});
 
-		map.addControl(new maplibregl.NavigationControl(), "top-left");
-
 		map.on("load", () => {
+			map?.setPaintProperty("building", "fill-color", "#e64980");
+			map?.setPaintProperty("building-3d", "fill-extrusion-color", "#e64980");
+			map?.setPaintProperty("road_motorway", "line-color", "#e64980");
+			map?.setPaintProperty("road_trunk_primary", "line-color", "#e64980");
+
 			map?.addSource(SOURCE_ID, {
 				type: "geojson",
 				data: { type: "FeatureCollection", features: props.features() },
