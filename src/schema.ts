@@ -3,9 +3,8 @@ import { z } from "zod";
 export const spotInputSchema = z.object({
 	series: z.string().min(1),
 	title: z.string().min(1),
-	description: z.string().min(1),
-	maps_url: z.string().min(1),
-	episode: z.string().nullable(),
+	plusCode: z.string().min(1),
+	description: z.string().min(1).nullable(),
 	imageOptionId: z.string().nullable(),
 });
 
@@ -15,10 +14,9 @@ export interface SpotData {
 	series: string;
 	seriesName: string;
 	title: string;
-	description: string;
-	episode: string | null;
 	lat: number;
 	lng: number;
+	description: string | null;
 	imageBytes: Uint8Array | null;
 	discordUsername: string;
 	discordUserId: string;

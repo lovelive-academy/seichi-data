@@ -69,8 +69,7 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 		},
 		properties: {
 			title: spot.title,
-			description: spot.description,
-			...(spot.episode ? { episode: spot.episode } : {}),
+			...(spot.description ? { description: spot.description } : {}),
 			...(spot.imageBytes ? { image: `images/${uuid}.jpg` } : {}),
 		},
 	};
@@ -102,7 +101,6 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 
 - シリーズ: ${spot.seriesName}
 - 施設名: ${spot.title}
-- エピソード: ${spot.episode ?? "未指定"}
 - 座標: ${spot.lat}, ${spot.lng}
 - 投稿者: ${spot.discordUsername} (${spot.discordUserId})
 - 投稿日時: ${new Date().toISOString()}

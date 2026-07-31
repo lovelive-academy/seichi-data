@@ -11,11 +11,11 @@ import {
 	InteractionResponseType,
 	InteractionType,
 } from "discord.js";
+import { decode } from "pluscodes";
 import seriesJson from "./public/series.json" with { type: "json" };
 import { checkMemberAge, verifyDiscordSignature } from "./src/discord.ts";
 import { createSpotPR } from "./src/github.ts";
 import { fetchImage } from "./src/image.ts";
-import { parseGoogleMapsUrl } from "./src/maps.ts";
 import { spotInputSchema } from "./src/schema.ts";
 
 const SERIES_NAMES: Record<string, string> = Object.fromEntries(
@@ -76,9 +76,8 @@ async function handleSpotCommand(
 		const parsed = spotInputSchema.safeParse({
 			series: getString("series"),
 			title: getString("title"),
-			description: getString("description"),
-			maps_url: getString("maps_url"),
-			episode: getString("episode") ?? null,
+			plusCode: getString("pluscode"),
+			description: getString("description") ?? null,
 			imageOptionId: getAttachmentId("image") ?? null,
 		});
 
@@ -87,14 +86,7 @@ async function handleSpotCommand(
 			return;
 		}
 
-		const {
-			series,
-			title,
-			description,
-			maps_url: mapsUrl,
-			episode,
-			imageOptionId,
-		} = parsed.data;
+		const { series, title, plusCode, description, imageOptionId } = parsed.data;
 
 		const user = interaction.member?.user ?? interaction.user;
 		if (!user) throw new Error("No user in interaction");
@@ -107,11 +99,9 @@ async function handleSpotCommand(
 			return;
 		}
 
-		const coords = await parseGoogleMapsUrl(mapsUrl);
+		const coords = decode(plusCode);
 		if (!coords) {
-			await followUp(
-				"Google Maps URLから座標を取得できませんでした。場所のURLを確認してください。",
-			);
+			await followUp("Pluscodeから座標をデコードできませんでした。");
 			return;
 		}
 
@@ -135,10 +125,9 @@ async function handleSpotCommand(
 				series,
 				seriesName: SERIES_NAMES[series] ?? series,
 				title,
+				lat: coords.latitude,
+				lng: coords.longitude,
 				description,
-				episode,
-				lat: coords.lat,
-				lng: coords.lng,
 				imageBytes,
 				discordUsername: user.username,
 				discordUserId: user.id,
