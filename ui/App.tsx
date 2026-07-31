@@ -10,7 +10,7 @@ const App = () => {
 	const [series, setSeries] = createSignal<Series[]>([]);
 	const [allFeatures, setAllFeatures] = createSignal<FeatureView[]>([]);
 
-	const [currentSeries, setCurrentSeries] = createSignal("");
+	const [currentSeries, setCurrentSeries] = createSignal("all");
 	const [selected, setSelected] = createSignal<FeatureView | null>(null);
 
 	onMount(async () => {
@@ -21,7 +21,15 @@ const App = () => {
 
 	const filtered = (): FeatureView[] => {
 		const sid = currentSeries();
-		return allFeatures().filter((f) => (f.properties.series.id = sid));
+		console.log(sid);
+		if (sid === "all") return allFeatures();
+		return allFeatures().filter((f) => f.properties.series.id === sid);
+	};
+
+	const seriesColor = (): string | null => {
+		const sid = currentSeries();
+		if (sid === "all") return null;
+		return series().find((s) => s.id === sid)?.color ?? null;
 	};
 
 	return (
@@ -40,6 +48,7 @@ const App = () => {
 						<MapView
 							features={filtered()}
 							selected={selected()}
+							seriesColor={seriesColor()}
 							onFeatureClick={setSelected}
 						/>
 					</Show>

@@ -1,5 +1,5 @@
 import * as maplibregl from "maplibre-gl";
-import { createEffect, onMount } from "solid-js";
+import { createEffect, createSignal, onMount } from "solid-js";
 import type { FeatureView } from "../../src/schema.ts";
 
 const MAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
@@ -7,10 +7,13 @@ const MAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
 interface Props {
 	features: FeatureView[];
 	selected: FeatureView | null;
+	seriesColor: string | null;
 	onFeatureClick: (feature: FeatureView) => void;
 }
 
 const MapView = (props: Props) => {
+	const [loaded, setLoaded] = createSignal(false);
+
 	let container: HTMLDivElement | undefined;
 	let map: maplibregl.Map | undefined;
 	let markers: maplibregl.Marker[] = [];
@@ -42,6 +45,29 @@ const MapView = (props: Props) => {
 		}
 	}
 
+	function setColor(color: string | null) {
+		if (!map) return;
+
+		const layers = map.getStyle().layers;
+
+		layers.forEach((layer) => {
+			if (!map) return;
+			const id = layer.id;
+
+			if (/^(road|tunnel|bridge)_/.test(id) && layer.type === "line") {
+				map.setPaintProperty(id, "line-color", color ?? "#e40081");
+			}
+
+			if (id.startsWith("building")) {
+				const prop =
+					layer.type === "fill-extrusion"
+						? "fill-extrusion-color"
+						: "fill-color";
+				map.setPaintProperty(id, prop, color ?? "#e40081");
+			}
+		});
+	}
+
 	onMount(() => {
 		if (!container) return;
 		maplibregl.setWorkerUrl(
@@ -53,17 +79,24 @@ const MapView = (props: Props) => {
 			center: [137.5, 36.5],
 			zoom: 5,
 		});
-
 		map.on("load", () => {
 			addMarkers(props.features);
+			setColor(props.seriesColor);
+			setLoaded(true);
 		});
 	});
 
 	createEffect(() => {
 		const features = props.features;
-		if (!map?.loaded()) return;
+		if (!loaded()) return;
 		clearMarkers();
 		addMarkers(features);
+	});
+
+	createEffect(() => {
+		const color = props.seriesColor;
+		if (!loaded()) return;
+		setColor(color);
 	});
 
 	createEffect(() => {

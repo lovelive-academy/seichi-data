@@ -118,7 +118,7 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 
 ## 説明
 
-${spot.description}`;
+${spot.description ?? "(説明なし)"}`;
 
 	const { data: pr } = await octokit.rest.pulls.create({
 		owner,
