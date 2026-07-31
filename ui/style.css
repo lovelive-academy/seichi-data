@@ -1,3 +1,32 @@
+.search-dropdown {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #fff;
+	border: 1.5px solid var(--ll-hairline);
+	border-radius: 10px;
+	list-style: none;
+	margin: 4px 0 0;
+	padding: 0;
+	z-index: 100;
+	max-height: 240px;
+	overflow-y: auto;
+	box-shadow: var(--ll-shadow-panel);
+}
+
+.search-dropdown li a {
+	display: block;
+	padding: 8px 12px;
+	cursor: pointer;
+	color: var(--ll-ink);
+}
+
+.search-dropdown li a:hover {
+	background: var(--ll-tint);
+	opacity: 1;
+}
+
 .map-container {
 	margin-top: 32px;
 	width: 100%;

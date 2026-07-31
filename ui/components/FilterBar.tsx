@@ -1,16 +1,16 @@
 import { createSignal, For, Show } from "solid-js";
-import type { Series, SpotFeature } from "../types.ts";
+import type { Feature, FeatureView, Series } from "../../src/schema.ts";
 
 interface Props {
 	series: Series[];
-	seriesId: string;
-	features: SpotFeature[];
+	currentSeries: string;
+	features: FeatureView[];
 	onSeriesChange: (v: string) => void;
-	onSelect: (f: SpotFeature) => void;
+	onFeatureSelect: (f: Feature) => void;
 }
 
 const FilterBar = (props: Props) => {
-	const [results, setResults] = createSignal<SpotFeature[]>([]);
+	const [results, setResults] = createSignal<Feature[]>([]);
 
 	const search = (q: string) => {
 		const lower = q.toLowerCase();
@@ -25,16 +25,16 @@ const FilterBar = (props: Props) => {
 		);
 	};
 
-	const handleSelect = (f: SpotFeature) => {
+	const handleSelect = (f: Feature) => {
 		setResults([]);
-		props.onSelect(f);
+		props.onFeatureSelect(f);
 	};
 
 	return (
 		<div>
 			<div style={{ display: "flex", gap: "12px" }}>
 				<select
-					value={props.seriesId}
+					value={props.currentSeries}
 					onInput={(e) => props.onSeriesChange(e.currentTarget.value)}
 				>
 					<option value="">すべてのシリーズ</option>
@@ -42,25 +42,26 @@ const FilterBar = (props: Props) => {
 						{(s) => <option value={s.id}>{s.name}</option>}
 					</For>
 				</select>
-				<input
-					type="text"
-					placeholder="スポットを検索..."
-					onKeyDown={(e) => {
-						if (e.key === "Enter") search(e.currentTarget.value);
-					}}
-				/>
+				<div style={{ position: "relative", flex: "1" }}>
+					<input
+						type="text"
+						placeholder="スポットを検索..."
+						style={{ width: "100%" }}
+						onInput={(e) => search(e.currentTarget.value)}
+					/>
+					<Show when={results().length > 0}>
+						<ul class="search-dropdown">
+							<For each={results()}>
+								{(f) => (
+									<li>
+										<a onClick={() => handleSelect(f)}>{f.properties.title}</a>
+									</li>
+								)}
+							</For>
+						</ul>
+					</Show>
+				</div>
 			</div>
-			<Show when={results().length > 0}>
-				<ul>
-					<For each={results()}>
-						{(f) => (
-							<li>
-								<a onClick={() => handleSelect(f)}>{f.properties.title}</a>
-							</li>
-						)}
-					</For>
-				</ul>
-			</Show>
 		</div>
 	);
 };

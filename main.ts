@@ -16,11 +16,10 @@ import seriesJson from "./public/series.json" with { type: "json" };
 import { checkMemberAge, verifyDiscordSignature } from "./src/discord.ts";
 import { createSpotPR } from "./src/github.ts";
 import { fetchImage } from "./src/image.ts";
-import { spotInputSchema } from "./src/schema.ts";
+import { seriesSchema, spotInputSchema } from "./src/schema.ts";
 
-const SERIES_NAMES: Record<string, string> = Object.fromEntries(
-	seriesJson.series.map((s: { id: string; name: string }) => [s.id, s.name]),
-);
+const getSeries = (id: string) =>
+	seriesSchema.parse(seriesJson.series.find((s) => s.id === id));
 
 export interface Env {
 	DISCORD_PUBLIC_KEY: string;
@@ -106,24 +105,23 @@ async function handleSpotCommand(
 		}
 
 		let imageBytes: Uint8Array | null = null;
-		if (imageOptionId) {
-			const attachment =
-				interaction.data?.resolved?.attachments?.[imageOptionId];
-			if (attachment) {
-				if (attachment.size > 5 * 1024 * 1024) {
-					await followUp(
-						"画像が大きすぎます。5MB以下の画像を使用してください。",
-					);
-					return;
-				}
-				imageBytes = await fetchImage(attachment.url);
+
+		const attachment = imageOptionId
+			? interaction.data?.resolved?.attachments?.[imageOptionId]
+			: undefined;
+
+		if (attachment) {
+			if (attachment.size > 5 * 1024 * 1024) {
+				await followUp("画像が大きすぎます。5MB以下の画像を使用してください。");
+				return;
 			}
+
+			imageBytes = await fetchImage(attachment.url);
 		}
 
 		const prUrl = await createSpotPR(
 			{
-				series,
-				seriesName: SERIES_NAMES[series] ?? series,
+				series: getSeries(series),
 				title,
 				lat: coords.latitude,
 				lng: coords.longitude,
