@@ -15,7 +15,7 @@ const Card = (props: Props) => {
 				top: "16px",
 				right: "16px",
 				width: "320px",
-				"max-width": "calc(100vw - 32px)",
+				"max-width": "calc(100vw - 128px)",
 				"z-index": 1,
 			}}
 		>
