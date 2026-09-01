@@ -1,9 +1,9 @@
 import { Route, Router } from "@solidjs/router";
 import { createSignal, onMount, Show } from "solid-js";
 import type { FeatureView, Series } from "../src/schema.ts";
+import About from "./components/About.tsx";
 import Card from "./components/Card.tsx";
-import FilterBar from "./components/FilterBar.tsx";
-import Header from "./components/Header.tsx";
+import Filter from "./components/Filter.tsx";
 import MapView from "./components/MapView.tsx";
 import Register from "./pages/Register.tsx";
 import { loadSeriesAndFeatures } from "./utils/data.ts";
@@ -41,7 +41,16 @@ const Home = () => {
 
 	return (
 		<main>
-			<FilterBar
+			<Show when={series().length > 0}>
+				<MapView
+					features={filtered()}
+					selected={selected()}
+					seriesColor={seriesColor()}
+					onFeatureClick={setSelected}
+				/>
+			</Show>
+			<About />
+			<Filter
 				series={series()}
 				selectedSeries={selectedSeries()}
 				features={filtered()}
@@ -49,28 +58,17 @@ const Home = () => {
 				onSeriesClear={() => setSelectedSeries([])}
 				onFeatureSelect={setSelected}
 			/>
-			<div class="map-area">
-				<Show when={series().length > 0}>
-					<MapView
-						features={filtered()}
-						selected={selected()}
-						seriesColor={seriesColor()}
-						onFeatureClick={setSelected}
-					/>
-				</Show>
-				<Show when={selected()}>
-					{(feature) => (
-						<Card feature={feature()} onClose={() => setSelected(null)} />
-					)}
-				</Show>
-			</div>
+			<Show when={selected()}>
+				{(feature) => (
+					<Card feature={feature()} onClose={() => setSelected(null)} />
+				)}
+			</Show>
 		</main>
 	);
 };
 
 const App = () => (
-	<div class="viewer">
-		<Header />
+	<div>
 		<Router>
 			<Route path="/" component={Home} />
 			<Route path="/register" component={Register} />

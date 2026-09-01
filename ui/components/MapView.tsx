@@ -112,7 +112,7 @@ const MapView = (props: Props) => {
 		map.flyTo({ center: [lng, lat], zoom: 15 });
 	});
 
-	return <div ref={container} class="map-container" />;
+	return <div ref={container} style={{ position: "fixed", inset: 0 }} />;
 };
 
 export default MapView;

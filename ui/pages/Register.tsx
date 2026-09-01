@@ -77,12 +77,11 @@ const PluscodeMap = () => {
 
 	return (
 		<div>
-			<div style={{ display: "flex", gap: "8px" }}>
+			<div>
 				<input
 					type="text"
 					placeholder="場所を検索..."
 					value={query()}
-					style={{ width: "auto", flex: 1 }}
 					onInput={(e) => setQuery(e.currentTarget.value)}
 					onKeyDown={(e) => e.key === "Enter" && search()}
 				/>
@@ -90,17 +89,11 @@ const PluscodeMap = () => {
 					検索
 				</button>
 			</div>
-			<div ref={container} class="map-container" />
-			<div
-				style={{
-					display: "flex",
-					gap: "8px",
-				}}
-			>
+			<div ref={container} style={{ height: "50vh" }} />
+			<div>
 				<input
 					type="text"
 					readonly
-					style={{ width: "auto", flex: 1 }}
 					value={plusCode() ?? "地図をクリックして取得"}
 				/>
 				<button type="button" onClick={copy} disabled={!plusCode()}>
@@ -124,7 +117,7 @@ const Register: Component = () => {
 	});
 
 	return (
-		<main>
+		<main class="container">
 			<A href="/">← 地図に戻る</A>
 			<h2>聖地情報の登録方法</h2>
 			<p>
