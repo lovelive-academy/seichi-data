@@ -1,5 +1,6 @@
-import { createSignal, For } from "solid-js";
+import { For } from "solid-js";
 import type { Feature, FeatureView, Series } from "../../src/schema.ts";
+import { createFeatureSearch } from "../hooks/createFeatureSearch.ts";
 
 interface Props {
 	series: Series[];
@@ -18,17 +19,10 @@ const inactiveStyle = {
 };
 
 const Filter = (props: Props) => {
-	const [results, setResults] = createSignal<Feature[]>([]);
+	const { results, search } = createFeatureSearch(() => props.features);
 
-	const search = (q: string) => {
-		const lower = q.toLowerCase();
-
-		const filtered = props.features.filter((f) =>
-			f.properties.title.toLowerCase().includes(lower),
-		);
-		setResults(filtered);
-
-		const exact = props.features.find((f) => f.properties.title === q);
+	const onSearchInput = (q: string) => {
+		const exact = search(q);
 		if (exact) {
 			props.onFeatureSelect(exact);
 		}
@@ -52,7 +46,7 @@ const Filter = (props: Props) => {
 				type="text"
 				placeholder="スポットを検索..."
 				list="search-results"
-				onInput={(e) => search(e.currentTarget.value)}
+				onInput={(e) => onSearchInput(e.currentTarget.value)}
 			/>
 			<datalist id="search-results">
 				<For each={results()}>
