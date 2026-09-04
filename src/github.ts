@@ -85,7 +85,7 @@ export async function createSpotPR(spot: SpotData, env: Env): Promise<string> {
 		newFeature.properties.description = spot.description;
 	}
 	if (spot.imageBytes) {
-		newFeature.properties.image = `images/${uuid}.jpg`;
+		newFeature.properties.image = [`images/${uuid}.jpg`];
 	}
 
 	geojson.features.push(newFeature);

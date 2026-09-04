@@ -5,9 +5,12 @@ import { createFeatureSearch } from "../hooks/createFeatureSearch.ts";
 interface Props {
 	series: Series[];
 	selectedSeries: string[];
+	tags: string[];
+	selectedTags: string[];
 	features: FeatureView[];
 	onSeriesToggle: (id: string) => void;
 	onSeriesClear: () => void;
+	onTagToggle: (tag: string) => void;
 	onFeatureSelect: (f: Feature) => void;
 }
 
@@ -77,6 +80,18 @@ const Filter = (props: Props) => {
 						</button>
 					);
 				}}
+			</For>
+			<For each={props.tags}>
+				{(tag) => (
+					<label>
+						<input
+							type="checkbox"
+							checked={props.selectedTags.includes(tag)}
+							onChange={() => props.onTagToggle(tag)}
+						/>
+						{tag}
+					</label>
+				)}
 			</For>
 		</article>
 	);
