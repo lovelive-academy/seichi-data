@@ -63,24 +63,26 @@ const Filter = (props: Props) => {
 			>
 				すべて
 			</button>
-			<For each={props.series}>
-				{(s) => {
-					const isActive = () => props.selectedSeries.includes(s.id);
-					return (
-						<button
-							type="button"
-							style={
-								isActive()
-									? { background: s.color, "border-color": s.color }
-									: inactiveStyle
-							}
-							onClick={() => props.onSeriesToggle(s.id)}
-						>
-							{s.name}
-						</button>
-					);
-				}}
-			</For>
+			<div>
+				<For each={props.series}>
+					{(s) => {
+						const isActive = () => props.selectedSeries.includes(s.id);
+						return (
+							<button
+								type="button"
+								style={
+									isActive()
+										? { background: s.color, "border-color": s.color }
+										: inactiveStyle
+								}
+								onClick={() => props.onSeriesToggle(s.id)}
+							>
+								{s.name}
+							</button>
+						);
+					}}
+				</For>
+			</div>
 			<For each={props.tags}>
 				{(tag) => (
 					<label>

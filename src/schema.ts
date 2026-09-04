@@ -6,6 +6,7 @@ export const spotInputSchema = z.object({
 	plusCode: z.string().min(1),
 	description: z.string().min(1).nullable(),
 	imageOptionId: z.string().nullable(),
+	tags: z.string().nullable(),
 });
 
 export const seriesSchema = z.object({
@@ -54,6 +55,7 @@ export interface SpotData {
 	lng: number;
 	description: string | null;
 	imageBytes: Uint8Array | null;
+	tags: string[];
 	discordUsername: string;
 	discordUserId: string;
 }
