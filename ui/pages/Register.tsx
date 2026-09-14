@@ -4,6 +4,7 @@ import { createPlusCodePicker } from "../hooks/createPlusCodePicker.ts";
 import { searchLocation } from "../utils/geocode.ts";
 import { loadTwitterWidgets } from "../utils/twitter.ts";
 import "./Register.css";
+import { Search } from "lucide-solid/icons";
 
 const PluscodeMap = () => {
 	const { plusCode, setContainer, flyTo } = createPlusCodePicker();
@@ -34,6 +35,7 @@ const PluscodeMap = () => {
 				onKeyDown={(e) => e.key === "Enter" && search()}
 			/>
 			<button type="button" onClick={search}>
+				<Search />
 				検索
 			</button>
 			<input

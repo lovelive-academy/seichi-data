@@ -1,9 +1,7 @@
-.filter-panel {
+.filter-trigger {
 	position: fixed;
+	top: 220px;
 	left: 16px;
-	right: 16px;
-	bottom: 16px;
-	z-index: 1;
 }
 
 .filter-inactive {

@@ -1,4 +1,4 @@
-import { X, XIcon } from "lucide-solid";
+import { Image, X, XIcon } from "lucide-solid";
 import { createSignal, For, Show } from "solid-js";
 import type { FeatureView } from "../../src/schema.ts";
 import "./Card.css";
@@ -20,6 +20,7 @@ const Card = (props: Props) => {
 			<h3>{props.feature.properties.title}</h3>
 			<Show when={props.feature.properties.image?.length}>
 				<button type="button" onClick={() => setImageModalOpen(true)}>
+					<Image />
 					画像を見る
 				</button>
 			</Show>

@@ -2,5 +2,10 @@
 	position: fixed;
 	top: 16px;
 	left: 16px;
-	z-index: 1;
+}
+
+@media (max-width: 640px) {
+	.about-panel {
+		right: 16px;
+	}
 }
