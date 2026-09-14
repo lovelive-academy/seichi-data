@@ -1,6 +1,7 @@
 import { For } from "solid-js";
 import type { Feature, FeatureView, Series } from "../../src/schema.ts";
 import { createFeatureSearch } from "../hooks/createFeatureSearch.ts";
+import "./Filter.css";
 
 interface Props {
 	series: Series[];
@@ -14,13 +15,6 @@ interface Props {
 	onFeatureSelect: (f: Feature) => void;
 }
 
-const inactiveStyle = {
-	background: "var(--pico-card-background-color)",
-	color: "var(--pico-muted-color)",
-	"border-color": "var(--pico-muted-border-color)",
-	"box-shadow": "none",
-};
-
 const Filter = (props: Props) => {
 	const { results, search } = createFeatureSearch(() => props.features);
 
@@ -32,15 +26,7 @@ const Filter = (props: Props) => {
 	};
 
 	return (
-		<article
-			style={{
-				position: "fixed",
-				left: "16px",
-				right: "16px",
-				bottom: "16px",
-				"z-index": 1,
-			}}
-		>
+		<article class="filter-panel">
 			<input
 				type="text"
 				placeholder="スポットを検索..."
@@ -54,30 +40,23 @@ const Filter = (props: Props) => {
 			</datalist>
 			<button
 				type="button"
-				style={props.selectedSeries.length === 0 ? {} : inactiveStyle}
+				classList={{ "filter-inactive": props.selectedSeries.length !== 0 }}
 				onClick={props.onSeriesClear}
 			>
 				すべて
 			</button>
-			<div
-				style={{
-					display: "flex",
-					"flex-wrap": "wrap",
-					gap: "16px",
-					"align-items": "center",
-				}}
-			>
+			<div class="filter-chip-list">
 				<For each={props.series}>
 					{(s) => {
 						const isActive = () => props.selectedSeries.includes(s.id);
 						return (
 							<button
 								type="button"
-								style={
-									isActive()
-										? { background: s.color, "border-color": s.color }
-										: inactiveStyle
-								}
+								classList={{
+									"filter-series-active": isActive(),
+									"filter-inactive": !isActive(),
+								}}
+								style={isActive() ? { "--series-color": s.color } : undefined}
 								onClick={() => props.onSeriesToggle(s.id)}
 							>
 								{s.name}
@@ -86,14 +65,7 @@ const Filter = (props: Props) => {
 					}}
 				</For>
 			</div>
-			<div
-				style={{
-					display: "flex",
-					"flex-wrap": "wrap",
-					gap: "16px",
-					"align-items": "center",
-				}}
-			>
+			<div class="filter-chip-list">
 				<For each={props.tags}>
 					{(tag) => (
 						<label>

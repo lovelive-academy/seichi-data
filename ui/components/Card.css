@@ -1,0 +1,11 @@
+.card-panel {
+	position: fixed;
+	top: 16px;
+	right: 16px;
+	width: 32vw;
+	z-index: 1;
+}
+
+.card-image {
+	padding: 24px;
+}

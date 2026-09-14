@@ -1,6 +1,7 @@
 import { X, XIcon } from "lucide-solid";
 import { createSignal, For, Show } from "solid-js";
 import type { FeatureView } from "../../src/schema.ts";
+import "./Card.css";
 
 interface Props {
 	feature: FeatureView;
@@ -11,15 +12,7 @@ const Card = (props: Props) => {
 	const [imageModalOpen, setImageModalOpen] = createSignal(false);
 
 	return (
-		<article
-			style={{
-				position: "fixed",
-				top: "16px",
-				right: "16px",
-				width: "32vw",
-				"z-index": 1,
-			}}
-		>
+		<article class="card-panel">
 			<button type="button" onClick={props.onClose} aria-label="閉じる">
 				<X />
 			</button>
@@ -49,7 +42,7 @@ const Card = (props: Props) => {
 							<img
 								src={src}
 								alt={props.feature.properties.title}
-								style={{ padding: "24px" }}
+								class="card-image"
 							/>
 						)}
 					</For>

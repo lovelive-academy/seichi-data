@@ -1,0 +1,26 @@
+.filter-panel {
+	position: fixed;
+	left: 16px;
+	right: 16px;
+	bottom: 16px;
+	z-index: 1;
+}
+
+.filter-inactive {
+	background: var(--pico-card-background-color);
+	color: var(--pico-muted-color);
+	border-color: var(--pico-muted-border-color);
+	box-shadow: none;
+}
+
+.filter-chip-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: center;
+}
+
+.filter-series-active {
+	background: var(--series-color);
+	border-color: var(--series-color);
+}
