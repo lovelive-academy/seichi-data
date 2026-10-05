@@ -1,4 +1,50 @@
 {
-	"type": "FeatureCollection",
-	"features": []
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "46f475e7-c1fe-4418-9ad5-7e1852b5a3fc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.8549297,
+          35.1026537
+        ]
+      },
+      "properties": {
+        "title": "沼津駅",
+        "description": "ラブライブ！サンシャインの聖地"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aeb85681-8513-43bd-bc97-64178c5e067c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.712938,
+          41.764937
+        ]
+      },
+      "properties": {
+        "title": "八幡坂"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2ee8cbdd-b078-4e0f-a5d7-25b5b6d4bc96",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.887563,
+          35.034938
+        ]
+      },
+      "properties": {
+        "title": "淡島遊歩トンネル",
+        "description": "ラブライブ！サンシャイン!!2期10話「シャイニーを探して」",
+        "image": [ "images/ce802ba9-f47a-4d01-b3e9-21633b066605.jpg" ]
+      }
+    }
+  ]
 }

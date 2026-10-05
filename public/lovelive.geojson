@@ -1,4 +1,35 @@
 {
-	"type": "FeatureCollection",
-	"features": []
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "94f45126-51b8-46e2-b88e-c17797b4ef43",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7600289,
+          35.6821265
+        ]
+      },
+      "properties": {
+        "title": "行幸通り",
+        "description": "Snow halationが披露された場所"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "a5a399ab-2cda-41b6-8edb-f4e338d31fd1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.762437,
+          35.702313
+        ]
+      },
+      "properties": {
+        "title": "順天堂大学医学部附属順天堂医院",
+        "description": "西木野総合病院のモデルとされている病院"
+      }
+    }
+  ]
 }
