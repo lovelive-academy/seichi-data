@@ -30,6 +30,27 @@
         "title": "順天堂大学医学部附属順天堂医院",
         "description": "西木野総合病院のモデルとされている病院"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "cce1ab2e-e749-42e0-9d06-5c81a6806fbb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.772688,
+          35.699188
+        ]
+      },
+      "properties": {
+        "title": "秋葉原UDX",
+        "description": "UTX学園のモデルとなった大規模複合ビル",
+        "image": [
+          "images/cce1ab2e-e749-42e0-9d06-5c81a6806fbb.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
