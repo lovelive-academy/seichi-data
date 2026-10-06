@@ -43,7 +43,30 @@
       "properties": {
         "title": "淡島遊歩トンネル",
         "description": "ラブライブ！サンシャイン!!2期10話「シャイニーを探して」",
-        "image": [ "images/ce802ba9-f47a-4d01-b3e9-21633b066605.jpg" ]
+        "image": [
+          "images/ce802ba9-f47a-4d01-b3e9-21633b066605.jpg"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2bf65c80-c043-404e-a9f5-36b6913e7df1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.897313,
+          35.020687
+        ]
+      },
+      "properties": {
+        "title": "三津浜",
+        "description": "ラブライブサンシャインの最初のメインビジュアルの場所など",
+        "image": [
+          "images/2bf65c80-c043-404e-a9f5-36b6913e7df1.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
       }
     }
   ]
