@@ -21,7 +21,7 @@ function createOctokit(env: Bindings): Octokit {
 		authStrategy: createAppAuth,
 		auth: {
 			appId: env.GITHUB_APP_ID,
-			privateKey: toP8Pem(env.GITHUB_APP_PRIVATE_KEY),
+			privateKey: toP8Pem(atob(env.GITHUB_APP_PRIVATE_KEY)),
 			installationId: env.GITHUB_INSTALLATION_ID,
 		},
 	});
