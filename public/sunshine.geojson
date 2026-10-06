@@ -43,7 +43,27 @@
       "properties": {
         "title": "淡島遊歩トンネル",
         "description": "ラブライブ！サンシャイン!!2期10話「シャイニーを探して」",
-        "image": [ "images/ce802ba9-f47a-4d01-b3e9-21633b066605.jpg" ]
+        "image": [
+          "images/ce802ba9-f47a-4d01-b3e9-21633b066605.jpg"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ef9f72c4-bb9d-4978-96b3-bbb997ace068",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.897438,
+          35.020312
+        ]
+      },
+      "properties": {
+        "title": "安田屋旅館",
+        "description": "高海千歌の実家",
+        "image": [
+          "images/ef9f72c4-bb9d-4978-96b3-bbb997ace068.jpg"
+        ]
       }
     }
   ]
