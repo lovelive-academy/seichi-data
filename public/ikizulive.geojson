@@ -14,7 +14,30 @@
       "properties": {
         "title": "駒形橋",
         "description": "ツイート・LLDなどに複数回登場",
-        "image": [ "images/2c9c3c21-ea19-4adb-b98e-2313b2109484.jpg" ]
+        "image": [
+          "images/2c9c3c21-ea19-4adb-b98e-2313b2109484.jpg"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "e38ec419-38ed-435c-8b6c-4ea13b264081",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.465312,
+          34.596188
+        ]
+      },
+      "properties": {
+        "title": "test",
+        "description": "とにかく踊ればなんとかなる",
+        "image": [
+          "images/e38ec419-38ed-435c-8b6c-4ea13b264081.jpg"
+        ],
+        "tags": [
+          "その他"
+        ]
       }
     }
   ]
