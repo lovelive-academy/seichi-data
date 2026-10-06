@@ -21,6 +21,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "e383f245-eb8c-418a-b533-be29e7f05191",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.713438,
+          35.676313
+        ]
+      },
+      "properties": {
+        "title": "国立競技場前 広場",
+        "description": "3期OP主題歌\n「Let's be ONE」のジャケット、他TVアニメ内に登場",
+        "image": [
+          "images/e383f245-eb8c-418a-b533-be29e7f05191.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
