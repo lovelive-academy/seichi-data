@@ -1,25 +1,25 @@
 {
 	"series": [
-		{ "id": "lovelive", "name": "ラブライブ！", "color": "#e40081" },
+		{ "id": "lovelive", "name": "ラブライブ！", "color": "#e50080" },
 		{
 			"id": "sunshine",
 			"name": "ラブライブ！サンシャイン!!",
-			"color": "#19b1f7"
+			"color": "#19b1f6"
 		},
 		{
 			"id": "nijigasaki",
 			"name": "ラブライブ！虹ヶ咲学園スクールアイドル同好会",
-			"color": "#f8d657"
+			"color": "#f8d556"
 		},
 		{
 			"id": "superstar",
 			"name": "ラブライブ！スーパースター!!",
-			"color": "#da57da"
+			"color": "#da57d8"
 		},
 		{
 			"id": "hasunosora",
 			"name": "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
-			"color": "#c22312"
+			"color": "#fb8a9b"
 		},
 		{
 			"id": "musical",
