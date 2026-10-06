@@ -21,6 +21,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "f0db507b-c8c0-4c84-af8c-dc70b9022013",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.696813,
+          35.667313
+        ]
+      },
+      "properties": {
+        "title": "代々木公園野外ステージ",
+        "description": "TVアニメ ラブライブ！スーパースター!! 1期第3話などにて登場",
+        "image": [
+          "images/f0db507b-c8c0-4c84-af8c-dc70b9022013.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
