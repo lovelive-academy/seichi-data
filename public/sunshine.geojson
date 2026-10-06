@@ -68,6 +68,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "6e7bed61-0b54-41af-8077-c84d98d7c8e0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.898063,
+          35.022188
+        ]
+      },
+      "properties": {
+        "title": "松月",
+        "description": "テレビ版や劇場版で登場した",
+        "image": [
+          "images/6e7bed61-0b54-41af-8077-c84d98d7c8e0.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
