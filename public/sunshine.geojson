@@ -68,6 +68,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "4a223473-c0fd-4ceb-9ba8-ca6e238d1c2f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.887938,
+          35.018312
+        ]
+      },
+      "properties": {
+        "title": "長浜城跡",
+        "description": "アニメ1期6話で登場",
+        "image": [
+          "images/4a223473-c0fd-4ceb-9ba8-ca6e238d1c2f.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
