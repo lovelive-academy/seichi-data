@@ -68,6 +68,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "365ae1b9-caa9-49f9-854f-cf8765572f1b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.861563,
+          35.104062
+        ]
+      },
+      "properties": {
+        "title": "PlazaVerde",
+        "description": "アニメ2期で登場する沼津の練習所",
+        "image": [
+          "images/365ae1b9-caa9-49f9-854f-cf8765572f1b.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
