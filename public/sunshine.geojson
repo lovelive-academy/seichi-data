@@ -68,6 +68,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "3e8effc8-d73a-4adf-81d0-52bc39ff4ca0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.896563,
+          35.019562
+        ]
+      },
+      "properties": {
+        "title": "伊豆・三津シーパラダイス",
+        "description": "2ndシングルのPVや2期４話で登場",
+        "image": [
+          "images/3e8effc8-d73a-4adf-81d0-52bc39ff4ca0.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
