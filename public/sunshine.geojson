@@ -68,6 +68,27 @@
           "アニメ"
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "b497c8e0-b8e3-43a5-aa72-c9832c394095",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.862063,
+          35.104312
+        ]
+      },
+      "properties": {
+        "title": "PlazaVerde付近の道路",
+        "description": "津島善子があんこを拾った場所",
+        "image": [
+          "images/b497c8e0-b8e3-43a5-aa72-c9832c394095.jpg"
+        ],
+        "tags": [
+          "アニメ"
+        ]
+      }
     }
   ]
 }
