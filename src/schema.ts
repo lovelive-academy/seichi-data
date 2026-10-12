@@ -55,6 +55,10 @@ export const featureResSchema = z.object({
 	features: z.array(featureViewSchema),
 });
 
+export const geocodeResSchema = z.object({
+	location: z.object({ lat: z.number(), lon: z.number() }).nullable(),
+});
+
 export type SpotInput = z.infer<typeof spotInputSchema>;
 export type Series = z.infer<typeof seriesSchema>;
 export type SeriesJSON = z.infer<typeof seriesJSONSchema>;
@@ -62,3 +66,4 @@ export type Tags = z.infer<typeof tagsSchema>;
 export type Feature = z.infer<typeof featureSchema>;
 export type FeatureView = z.infer<typeof featureViewSchema>;
 export type FeatureRes = z.infer<typeof featureResSchema>;
+export type GeocodeRes = z.infer<typeof geocodeResSchema>;

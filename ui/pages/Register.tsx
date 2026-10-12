@@ -3,6 +3,7 @@ import { ArrowLeft, Search } from "lucide-solid/icons";
 import * as maplibregl from "maplibre-gl";
 import { encode } from "pluscodes";
 import { type Component, createSignal, onMount } from "solid-js";
+import { geocodeResSchema } from "../../src/schema.ts";
 import { loadTwitterWidgets } from "../utils/twitter.ts";
 import "./Register.css";
 
@@ -32,8 +33,7 @@ const PluscodeMap = () => {
 		const res = await fetch(`/api/geocode?q=${encodeURIComponent(q)}`);
 		if (!res.ok) return;
 
-		const body: { location: { lat: number; lon: number } | null } =
-			await res.json();
+		const body = geocodeResSchema.parse(await res.json());
 		if (!body.location) return;
 
 		map.flyTo({ center: [body.location.lon, body.location.lat], zoom: 15 });
