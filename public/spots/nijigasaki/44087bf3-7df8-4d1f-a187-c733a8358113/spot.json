@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "44087bf3-7df8-4d1f-a187-c733a8358113",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.794188,
+      35.629813
+    ]
+  },
+  "properties": {
+    "title": "東京ビッグサイト",
+    "description": "虹ヶ咲学園として登場。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
