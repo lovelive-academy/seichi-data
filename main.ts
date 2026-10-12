@@ -205,7 +205,7 @@ app.get("/api/geocode", async (c) => {
 	if (!q) return c.body(null, 400);
 
 	const location = await findLocation(q);
-	return c.json({ location });
+	return c.json(JSON.stringify({ location }, null, 2));
 });
 
 app.get("/api/features", (c) => {
@@ -223,9 +223,15 @@ app.get("/api/features", (c) => {
 		return seriesMatch && tagsMatch;
 	});
 
-	return c.json({
-		features: result,
-	});
+	return c.json(
+		JSON.stringify(
+			{
+				features: result,
+			},
+			null,
+			2,
+		),
+	);
 });
 
 app.mount("/interactions", bot.fetch);
