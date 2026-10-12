@@ -1,0 +1,11 @@
+{
+	"type": "Feature",
+	"id": "aeb85681-8513-43bd-bc97-64178c5e067c",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [140.712938, 41.764937]
+	},
+	"properties": {
+		"title": "八幡坂"
+	}
+}

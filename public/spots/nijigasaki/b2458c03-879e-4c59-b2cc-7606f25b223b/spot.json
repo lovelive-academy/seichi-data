@@ -1,0 +1,14 @@
+{
+	"type": "Feature",
+	"id": "b2458c03-879e-4c59-b2cc-7606f25b223b",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [135.492813, 34.701438]
+	},
+	"properties": {
+		"title": "イノゲート大阪 スカイガーデン",
+		"description": "えいがさき2章で登場。あいせつのシーン",
+		"image": ["image.jpg"],
+		"tags": ["映画"]
+	}
+}

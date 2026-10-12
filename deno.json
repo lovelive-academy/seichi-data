@@ -5,6 +5,6 @@
 		"dev": "wrangler dev",
 		"check": "deno check && dx biome check .",
 		"check:unsafe": "deno check && dx biome check --write --unsafe .",
-		"build": "dx vite build"
+		"build": "deno run --allow-read --allow-write scripts/build-spots.js && dx vite build"
 	}
 }

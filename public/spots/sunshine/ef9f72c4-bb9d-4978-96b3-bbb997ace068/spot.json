@@ -1,0 +1,13 @@
+{
+	"type": "Feature",
+	"id": "ef9f72c4-bb9d-4978-96b3-bbb997ace068",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [138.897438, 35.020312]
+	},
+	"properties": {
+		"title": "安田屋旅館",
+		"description": "高海千歌の実家",
+		"image": ["image.jpg"]
+	}
+}

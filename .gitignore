@@ -2,6 +2,7 @@
 
 dist
 .wrangler
+public/generated
 .output
 .vercel
 .netlify

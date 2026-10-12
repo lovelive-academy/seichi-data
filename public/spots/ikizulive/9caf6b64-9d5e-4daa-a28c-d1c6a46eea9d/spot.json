@@ -1,0 +1,14 @@
+{
+	"type": "Feature",
+	"id": "9caf6b64-9d5e-4daa-a28c-d1c6a46eea9d",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [135.492313, 34.703312]
+	},
+	"properties": {
+		"title": "うめきた公園",
+		"description": "Dou-Da? DOING!で梅田組がビラ配りをしていた場所。",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
+}

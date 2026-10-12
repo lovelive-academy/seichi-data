@@ -1,0 +1,13 @@
+{
+	"type": "Feature",
+	"id": "966552ab-289a-470d-9b50-e72428230e94",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [135.757313, 34.985937]
+	},
+	"properties": {
+		"title": "大空広場",
+		"description": "えいがさき第2章で、せつ菜(菜々)がファンと交流しているシーンに登場",
+		"image": ["image.jpg"]
+	}
+}

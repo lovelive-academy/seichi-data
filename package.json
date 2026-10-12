@@ -2,6 +2,9 @@
 	"name": "seichi-data",
 	"private": true,
 	"type": "module",
+	"scripts": {
+		"build": "node scripts/build-spots.js && vite build"
+	},
 	"dependencies": {
 		"@cf-wasm/photon": "^0.4.0",
 		"@cloudflare/workers-types": "^5.20260728.1",

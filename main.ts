@@ -7,14 +7,14 @@ import {
 } from "discord-hono";
 import { Hono } from "hono";
 import { decode } from "pluscodes";
-import hasunosoraGeojsonl from "./public/hasunosora.geojsonl";
-import ikizuliveGeojsonl from "./public/ikizulive.geojsonl";
-import loveliveGeojsonl from "./public/lovelive.geojsonl";
-import musicalGeojsonl from "./public/musical.geojsonl";
-import nijigasakiGeojsonl from "./public/nijigasaki.geojsonl";
+import hasunosoraGeojsonl from "./public/generated/hasunosora.geojsonl";
+import ikizuliveGeojsonl from "./public/generated/ikizulive.geojsonl";
+import loveliveGeojsonl from "./public/generated/lovelive.geojsonl";
+import musicalGeojsonl from "./public/generated/musical.geojsonl";
+import nijigasakiGeojsonl from "./public/generated/nijigasaki.geojsonl";
+import sunshineGeojsonl from "./public/generated/sunshine.geojsonl";
+import superstarGeojsonl from "./public/generated/superstar.geojsonl";
 import seriesJson from "./public/series.json" with { type: "json" };
-import sunshineGeojsonl from "./public/sunshine.geojsonl";
-import superstarGeojsonl from "./public/superstar.geojsonl";
 import tagsJson from "./public/tags.json" with { type: "json" };
 import { checkMemberAge } from "./src/discord.ts";
 import type { Bindings, Env } from "./src/env.ts";
@@ -139,8 +139,8 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 
 			if (image) {
 				const attachment = c.ref.attachments?.[image];
-				// 5MB以上だとfetch・jpgへのconvertに時間がかかってコケる
-				if (attachment && attachment.size > 5 * 1024 * 1024) {
+				// 4MB以上だとfetch・jpgへのconvertに時間がかかってコケる
+				if (attachment && attachment.size > 4 * 1024 * 1024) {
 					await c.followup(
 						"画像が大きすぎます。5MB以下の画像を使用してください。",
 					);

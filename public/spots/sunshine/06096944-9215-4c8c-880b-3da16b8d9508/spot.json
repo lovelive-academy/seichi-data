@@ -1,0 +1,14 @@
+{
+	"type": "Feature",
+	"id": "06096944-9215-4c8c-880b-3da16b8d9508",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [138.893438, 35.017938]
+	},
+	"properties": {
+		"title": "長浜のバス停",
+		"description": "イラストなどで登場",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
+}

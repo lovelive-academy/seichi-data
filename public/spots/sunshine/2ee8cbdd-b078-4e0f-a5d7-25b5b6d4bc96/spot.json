@@ -1,0 +1,13 @@
+{
+	"type": "Feature",
+	"id": "2ee8cbdd-b078-4e0f-a5d7-25b5b6d4bc96",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [138.887563, 35.034938]
+	},
+	"properties": {
+		"title": "淡島遊歩トンネル",
+		"description": "ラブライブ！サンシャイン!!2期10話「シャイニーを探して」",
+		"image": ["image.jpg"]
+	}
+}

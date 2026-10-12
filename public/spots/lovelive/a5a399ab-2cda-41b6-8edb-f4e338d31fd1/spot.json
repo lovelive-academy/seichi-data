@@ -1,0 +1,12 @@
+{
+	"type": "Feature",
+	"id": "a5a399ab-2cda-41b6-8edb-f4e338d31fd1",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [139.762437, 35.702313]
+	},
+	"properties": {
+		"title": "順天堂大学医学部附属順天堂医院",
+		"description": "西木野総合病院のモデルとされている病院"
+	}
+}

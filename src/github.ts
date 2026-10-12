@@ -3,7 +3,7 @@ import { createPrivateKey } from "node:crypto";
 import { createAppAuth } from "@octokit/auth-app";
 import { Octokit } from "octokit";
 import type { Bindings } from "./env.ts";
-import { type Feature, featureSchema, type SpotData } from "./schema.ts";
+import type { Feature, SpotData } from "./schema.ts";
 
 // GitHub Appの秘密鍵はPKCS1形式で発行されるが、
 // JWT署名に使うWebCryptoのSubtleCryptoはPKCS1形式の鍵を扱えないため、
@@ -50,33 +50,6 @@ export async function createSpotPR(
 		sha: ref.object.sha,
 	});
 
-	const { data: existingFile } = await octokit.rest.repos.getContent({
-		owner,
-		repo,
-		path: `public/${spot.series.id}.geojsonl`,
-	});
-
-	if (Array.isArray(existingFile) || !("content" in existingFile)) {
-		throw new Error("Unexpected file response");
-	}
-
-	const rawContent = existingFile.content.replace(/\n/g, "");
-	const contentBytes = Uint8Array.from(atob(rawContent), (c) =>
-		c.charCodeAt(0),
-	);
-
-	const existingContent = new TextDecoder().decode(contentBytes);
-	const existingLines = existingContent
-		.split("\n")
-		.filter((line) => line.length > 0);
-
-	for (const line of existingLines) {
-		const parsed = featureSchema.safeParse(JSON.parse(line));
-		if (!parsed.success) {
-			throw new Error("Invalid GeoJSON line");
-		}
-	}
-
 	const newFeature: Feature = {
 		type: "Feature",
 		id: uuid,
@@ -93,21 +66,20 @@ export async function createSpotPR(
 		newFeature.properties.description = spot.description;
 	}
 	if (spot.imageBytes) {
-		newFeature.properties.image = [`images/${uuid}.jpg`];
+		newFeature.properties.image = ["image.jpg"];
 	}
 	if (spot.tags.length > 0) {
 		newFeature.properties.tags = spot.tags;
 	}
 
-	const newLines = [...existingLines, JSON.stringify(newFeature)];
-
 	await octokit.rest.repos.createOrUpdateFileContents({
 		owner,
 		repo,
-		path: `public/${spot.series.id}.geojsonl`,
+		path: `public/spots/${spot.series.id}/${uuid}/spot.json`,
 		message: `Add spot: ${spot.title}`,
-		content: Buffer.from(`${newLines.join("\n")}\n`).toString("base64"),
-		sha: existingFile.sha,
+		content: Buffer.from(JSON.stringify(newFeature, null, 2)).toString(
+			"base64",
+		),
 		branch: branchName,
 	});
 
@@ -115,7 +87,7 @@ export async function createSpotPR(
 		await octokit.rest.repos.createOrUpdateFileContents({
 			owner,
 			repo,
-			path: `public/images/${uuid}.jpg`,
+			path: `public/spots/${spot.series.id}/${uuid}/image.jpg`,
 			message: `Add image for spot: ${spot.title}`,
 			content: Buffer.from(spot.imageBytes).toString("base64"),
 			branch: branchName,
