@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "e5379d05-5301-430a-b578-f069c46ea6f8",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      135.494813,
+      34.703688
+    ]
+  },
+  "properties": {
+    "title": "グランフロント大阪",
+    "description": "えいがさき2章で登場",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "映画"
+    ]
+  }
+}
