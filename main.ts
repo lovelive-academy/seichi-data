@@ -205,7 +205,18 @@ app.get("/api/geocode", async (c) => {
 	if (!q) return c.body(null, 400);
 
 	const location = await findLocation(q);
-	return c.json(JSON.stringify({ location }, null, 2));
+
+	return c.body(
+		JSON.stringify(
+			{
+				location,
+			},
+			null,
+			2,
+		),
+		200,
+		{ "Content-Type": "application/json; charset=UTF-8" },
+	);
 });
 
 app.get("/api/features", (c) => {
@@ -223,7 +234,7 @@ app.get("/api/features", (c) => {
 		return seriesMatch && tagsMatch;
 	});
 
-	return c.json(
+	return c.body(
 		JSON.stringify(
 			{
 				features: result,
@@ -231,6 +242,8 @@ app.get("/api/features", (c) => {
 			null,
 			2,
 		),
+		200,
+		{ "Content-Type": "application/json; charset=UTF-8" },
 	);
 });
 
