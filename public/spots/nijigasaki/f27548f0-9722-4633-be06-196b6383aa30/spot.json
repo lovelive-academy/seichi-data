@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "id": "f27548f0-9722-4633-be06-196b6383aa30",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.767813,
+      35.625187
+    ]
+  },
+  "properties": {
+    "title": "夕陽の塔",
+    "description": "Poppin' Up!の歌唱シーンにて登場",
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
