@@ -7,7 +7,14 @@ import {
 } from "discord-hono";
 import { Hono } from "hono";
 import { decode } from "pluscodes";
+import hasunosoraGeojsonl from "./public/hasunosora.geojsonl";
+import ikizuliveGeojsonl from "./public/ikizulive.geojsonl";
+import loveliveGeojsonl from "./public/lovelive.geojsonl";
+import musicalGeojsonl from "./public/musical.geojsonl";
+import nijigasakiGeojsonl from "./public/nijigasaki.geojsonl";
 import seriesJson from "./public/series.json" with { type: "json" };
+import sunshineGeojsonl from "./public/sunshine.geojsonl";
+import superstarGeojsonl from "./public/superstar.geojsonl";
 import tagsJson from "./public/tags.json" with { type: "json" };
 import { checkMemberAge } from "./src/discord.ts";
 import type { Bindings, Env } from "./src/env.ts";
@@ -16,7 +23,7 @@ import { createSpotPR } from "./src/github.ts";
 import { fetchImage } from "./src/image.ts";
 import {
 	type FeatureView,
-	geoJSONSchema,
+	featureSchema,
 	seriesJSONSchema,
 	spotInputSchema,
 	tagsSchema,
@@ -27,35 +34,42 @@ const allTags = tagsSchema.parse(tagsJson);
 
 const getSeries = (id: string) => allSeries.find((s) => s.id === id);
 
+const geojsonlBySeriesId: Record<string, string> = {
+	lovelive: loveliveGeojsonl,
+	sunshine: sunshineGeojsonl,
+	nijigasaki: nijigasakiGeojsonl,
+	superstar: superstarGeojsonl,
+	hasunosora: hasunosoraGeojsonl,
+	musical: musicalGeojsonl,
+	ikizulive: ikizuliveGeojsonl,
+};
+
 const features: { type: "FeatureCollection"; features: FeatureView[] } = {
 	type: "FeatureCollection",
 	features: [],
 };
 
-await Promise.all(
-	allSeries.map(async (s) => {
-		try {
-			const geojsonModule = await import(`./public/${s.id}.geojson`, {
-				with: { type: "json" },
-			});
-			const parsed = geoJSONSchema.safeParse(geojsonModule.default);
-			if (!parsed.success) {
-				console.error(`Invalid geojson for ${s.id}:`, parsed.error);
-				return;
-			}
-			parsed.data.features.forEach((f) => {
-				features.features.push({
-					type: "Feature",
-					id: f.id,
-					geometry: f.geometry,
-					properties: { ...f.properties, series: s },
-				});
-			});
-		} catch (err) {
-			console.error(`Failed to load geojson for ${s.id}:`, err);
+for (const s of allSeries) {
+	const geojsonl = geojsonlBySeriesId[s.id];
+	if (geojsonl === undefined) {
+		console.error(`No geojsonl found for ${s.id}`);
+		continue;
+	}
+	const lines = geojsonl.split("\n").filter((line) => line.length > 0);
+	for (const line of lines) {
+		const parsed = featureSchema.safeParse(JSON.parse(line));
+		if (!parsed.success) {
+			console.error(`Invalid geojsonl line for ${s.id}:`, parsed.error);
+			continue;
 		}
-	}),
-);
+		features.features.push({
+			type: "Feature",
+			id: parsed.data.id,
+			geometry: parsed.data.geometry,
+			properties: { ...parsed.data.properties, series: s },
+		});
+	}
+}
 
 export const spotCommand = makeSlashCommand("spot", "聖地を投稿します").options(
 	[
@@ -210,7 +224,6 @@ app.get("/api/features", (c) => {
 	});
 
 	return c.json({
-		type: "FeatureCollection",
 		features: result,
 	});
 });

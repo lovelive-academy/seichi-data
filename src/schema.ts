@@ -28,7 +28,6 @@ export const seriesSchema = z.object({
 });
 
 export const seriesJSONSchema = z.object({ series: z.array(seriesSchema) });
-
 export const tagsSchema = z.array(z.string());
 
 export const featureSchema = z.object({
@@ -52,13 +51,7 @@ export const featureViewSchema = featureSchema.extend({
 	}),
 });
 
-export const geoJSONSchema = z.object({
-	type: z.literal("FeatureCollection"),
-	features: z.array(featureSchema),
-});
-
 export const featureResSchema = z.object({
-	type: z.literal("FeatureCollection"),
 	features: z.array(featureViewSchema),
 });
 
@@ -68,5 +61,4 @@ export type SeriesJSON = z.infer<typeof seriesJSONSchema>;
 export type Tags = z.infer<typeof tagsSchema>;
 export type Feature = z.infer<typeof featureSchema>;
 export type FeatureView = z.infer<typeof featureViewSchema>;
-export type GeoJSON = z.infer<typeof geoJSONSchema>;
 export type FeatureRes = z.infer<typeof featureResSchema>;
