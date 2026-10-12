@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "c2a75ded-b74e-49a4-9798-d7a312a4c82d",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      139.767813,
-      35.625187
-    ]
-  },
-  "properties": {
-    "title": "夕陽の塔",
-    "description": "Poppin' Up!の歌唱シーンにて登場",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "アニメ"
-    ]
-  }
+	"type": "Feature",
+	"id": "c2a75ded-b74e-49a4-9798-d7a312a4c82d",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [139.767813, 35.625187]
+	},
+	"properties": {
+		"title": "夕陽の塔",
+		"description": "Poppin' Up!の歌唱シーンにて登場",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
 }

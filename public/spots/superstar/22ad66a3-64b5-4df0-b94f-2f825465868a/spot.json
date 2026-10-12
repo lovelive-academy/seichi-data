@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "22ad66a3-64b5-4df0-b94f-2f825465868a",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      140.141563,
-      35.975438
-    ]
-  },
-  "properties": {
-    "title": "牛久駅",
-    "description": "スーパースター3期に複数回登場。鬼塚姉妹の居住地。",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "アニメ"
-    ]
-  }
+	"type": "Feature",
+	"id": "22ad66a3-64b5-4df0-b94f-2f825465868a",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [140.141563, 35.975438]
+	},
+	"properties": {
+		"title": "牛久駅",
+		"description": "スーパースター3期に複数回登場。鬼塚姉妹の居住地。",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
 }

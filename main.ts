@@ -82,7 +82,7 @@ export const spotCommand = makeSlashCommand("spot", "聖地を投稿します").
 		makeStringOption("tags", "タグ").choices(
 			allTags.map((tag) => ({ name: tag, value: tag })),
 		),
-		makeAttachmentOption("image", "画像 (5MBまで)"),
+		makeAttachmentOption("image", "画像 (4MBまで)"),
 	],
 );
 
@@ -142,7 +142,7 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 				// 4MB以上だとfetch・jpgへのconvertに時間がかかってコケる
 				if (attachment && attachment.size > 4 * 1024 * 1024) {
 					await c.followup(
-						"画像が大きすぎます。5MB以下の画像を使用してください。",
+						"画像が大きすぎます。4MB以下の画像を使用してください。",
 					);
 					return;
 				}

@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "97af2272-1bca-459f-9efb-8e123e2c1589",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      139.797563,
-      35.709437
-    ]
-  },
-  "properties": {
-    "title": "隅田川テラス(駒形橋・浅草駅寄り)",
-    "description": "ツイートやLLD、Dou-Da? DOING!などで複数回登場",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "その他"
-    ]
-  }
+	"type": "Feature",
+	"id": "97af2272-1bca-459f-9efb-8e123e2c1589",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [139.797563, 35.709437]
+	},
+	"properties": {
+		"title": "隅田川テラス(駒形橋・浅草駅寄り)",
+		"description": "ツイートやLLD、Dou-Da? DOING!などで複数回登場",
+		"image": ["image.jpg"],
+		"tags": ["その他"]
+	}
 }

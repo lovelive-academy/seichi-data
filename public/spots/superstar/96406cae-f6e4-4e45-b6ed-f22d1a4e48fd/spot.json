@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "96406cae-f6e4-4e45-b6ed-f22d1a4e48fd",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      140.147313,
-      35.977688
-    ]
-  },
-  "properties": {
-    "title": "牛久シャトー",
-    "description": "スーパースター3期4話に登場。",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "アニメ"
-    ]
-  }
+	"type": "Feature",
+	"id": "96406cae-f6e4-4e45-b6ed-f22d1a4e48fd",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [140.147313, 35.977688]
+	},
+	"properties": {
+		"title": "牛久シャトー",
+		"description": "スーパースター3期4話に登場。",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
 }

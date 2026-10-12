@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "61b6924b-32bc-4ac5-9b42-f89d8ed8836f",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      139.792438,
-      35.634187
-    ]
-  },
-  "properties": {
-    "title": "ダイワロイネットホテル東京有明",
-    "description": "アニガサキ2期の歩夢が侑を尾行するシーンで登場",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "アニメ"
-    ]
-  }
+	"type": "Feature",
+	"id": "61b6924b-32bc-4ac5-9b42-f89d8ed8836f",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [139.792438, 35.634187]
+	},
+	"properties": {
+		"title": "ダイワロイネットホテル東京有明",
+		"description": "アニガサキ2期の歩夢が侑を尾行するシーンで登場",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
 }

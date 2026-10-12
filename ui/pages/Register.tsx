@@ -149,7 +149,7 @@ const Register: Component = () => {
 					<strong>description</strong>: 説明(任意)
 				</li>
 				<li>
-					<strong>image</strong>: 画像(任意、5MB以下)
+					<strong>image</strong>: 画像(任意、4MB以下)
 				</li>
 				<li>
 					<strong>tags</strong>: タグ(任意)

@@ -8,6 +8,6 @@
 	"properties": {
 		"title": "駒形橋",
 		"description": "ツイート・LLDなどに複数回登場",
-		"image": ["image.jpg"]
+		"image": ["image.jpg", "image2.jpg"]
 	}
 }

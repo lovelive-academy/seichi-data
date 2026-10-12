@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "a22d7ad1-aef8-4c59-980c-cc639267603d",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      135.430062,
-      34.655937
-    ]
-  },
-  "properties": {
-    "title": "天保山マーケットプレース",
-    "description": "キミは夜のポラリスの歌詞中に登場",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "歌詞"
-    ]
-  }
+	"type": "Feature",
+	"id": "a22d7ad1-aef8-4c59-980c-cc639267603d",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [135.430062, 34.655937]
+	},
+	"properties": {
+		"title": "天保山マーケットプレース",
+		"description": "キミは夜のポラリスの歌詞中に登場",
+		"image": ["image.jpg"],
+		"tags": ["歌詞"]
+	}
 }

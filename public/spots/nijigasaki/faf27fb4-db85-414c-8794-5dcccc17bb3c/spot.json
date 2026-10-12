@@ -1,21 +1,14 @@
 {
-  "type": "Feature",
-  "id": "faf27fb4-db85-414c-8794-5dcccc17bb3c",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      139.791688,
-      35.634312
-    ]
-  },
-  "properties": {
-    "title": "国際展示場駅",
-    "description": "本編では虹ヶ咲学園駅として登場",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "アニメ"
-    ]
-  }
+	"type": "Feature",
+	"id": "faf27fb4-db85-414c-8794-5dcccc17bb3c",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [139.791688, 35.634312]
+	},
+	"properties": {
+		"title": "国際展示場駅",
+		"description": "本編では虹ヶ咲学園駅として登場",
+		"image": ["image.jpg"],
+		"tags": ["アニメ"]
+	}
 }
