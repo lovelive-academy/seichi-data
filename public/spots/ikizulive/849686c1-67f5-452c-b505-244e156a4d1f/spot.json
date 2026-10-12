@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "849686c1-67f5-452c-b505-244e156a4d1f",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.795063,
+      35.712813
+    ]
+  },
+  "properties": {
+    "title": "伝法院通り",
+    "description": "駒形花火の実家の呉服屋がある。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "その他"
+    ]
+  }
+}
