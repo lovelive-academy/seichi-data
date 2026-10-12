@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "aa9c088d-d5d7-4803-ba3a-5d03509eca8f",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.775188,
+      35.623562
+    ]
+  },
+  "properties": {
+    "title": "歩夢と侑が座ったベンチ",
+    "description": "かの有名なゆうぽむベンチ。アニガサキ1期1話で登場。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
