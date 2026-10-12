@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "f9ab8cc4-1b58-4871-8055-c899f6f374a6",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.789063,
+      35.669188
+    ]
+  },
+  "properties": {
+    "title": "越中島公園",
+    "description": "ou-Da? DOING!で浅草組が衣装案を話し合っていた場所。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
