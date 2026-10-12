@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "1ea7a8d3-518c-4502-a077-fdcb4f85e76a",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.791063,
+      35.630687
+    ]
+  },
+  "properties": {
+    "title": "TFTビル東館",
+    "description": "アニガサキ1期OPで歩夢が写っているシーンの背景",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
