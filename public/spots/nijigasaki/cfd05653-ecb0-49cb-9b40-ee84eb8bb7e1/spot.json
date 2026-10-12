@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "id": "cfd05653-ecb0-49cb-9b40-ee84eb8bb7e1",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.792438,
+      35.629813
+    ]
+  },
+  "properties": {
+    "title": "有明客船ターミナル",
+    "description": "「始まったのなら、貫くのみです！」のシーン",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
