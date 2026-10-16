@@ -154,6 +154,9 @@ const Register: Component = () => {
 				<li>
 					<strong>tags</strong>: タグ(任意)
 				</li>
+				<li>
+					<strong>anonymous</strong>: 投稿者名をマップに表示するかどうか(任意)
+				</li>
 			</ul>
 		</main>
 	);

@@ -70,7 +70,7 @@ export const spotCommand = makeSlashCommand("spot", "聖地を投稿します").
 			allTags.map((tag) => ({ name: tag, value: tag })),
 		),
 		makeAttachmentOption("image", "画像 (4MBまで)"),
-		makeBooleanOption("anonymous", "投稿者名を非公開にする"),
+		makeBooleanOption("anonymous", "投稿者名をマップに表示するかどうか"),
 	],
 );
 
