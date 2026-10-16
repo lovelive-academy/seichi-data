@@ -19,7 +19,7 @@ export async function loadFeatures(series: string[], tags: string[]) {
 	for (const s of series) params.append("series", s);
 	for (const t of tags) params.append("tags", t);
 
-	const res = await fetch(`/api/features?${params.toString()}`);
+	const res = await fetch(`/api/spots?${params.toString()}`);
 	const parsed = featureResSchema.parse(await res.json());
 
 	return parsed;

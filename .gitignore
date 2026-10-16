@@ -2,7 +2,8 @@
 
 dist
 .wrangler
-public/generated
+generated
+release-data
 .output
 .vercel
 .netlify

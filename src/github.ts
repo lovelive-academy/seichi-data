@@ -59,6 +59,7 @@ export async function createSpotPR(
 		},
 		properties: {
 			title: spot.title,
+			author: spot.discordUsername,
 		},
 	};
 

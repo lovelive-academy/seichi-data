@@ -1,0 +1,32 @@
+name: Publish spots data 
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/spots/**"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - run: node scripts/build.js --release 
+
+      - name: Publish to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view data-latest >/dev/null 2>&1; then
+            gh release create data-latest --title "ラブライブ！シリーズ聖地データ" --notes "GeoJSON形式です"
+          fi
+          gh release upload data-latest release-data/*.geojson --clobber
+          gh release edit data-latest --notes "public/spots から生成 (commit: ${{ github.sha }})"

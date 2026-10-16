@@ -3,7 +3,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "node scripts/build-spots.js && vite build"
+		"build": "node scripts/build.js && vite build"
 	},
 	"dependencies": {
 		"@cf-wasm/photon": "^0.4.0",

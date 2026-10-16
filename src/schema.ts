@@ -42,6 +42,7 @@ export const featureSchema = z.object({
 		description: z.string().optional(),
 		tags: z.array(z.string()).optional(),
 		image: z.array(z.string()).optional(),
+		author: z.string().optional(),
 	}),
 });
 
@@ -51,7 +52,13 @@ export const featureViewSchema = featureSchema.extend({
 	}),
 });
 
+export const featureCollectionSchema = z.object({
+	type: z.literal("FeatureCollection"),
+	features: z.array(featureSchema),
+});
+
 export const featureResSchema = z.object({
+	type: z.literal("FeatureCollection"),
 	features: z.array(featureViewSchema),
 });
 
@@ -64,6 +71,7 @@ export type Series = z.infer<typeof seriesSchema>;
 export type SeriesJSON = z.infer<typeof seriesJSONSchema>;
 export type Tags = z.infer<typeof tagsSchema>;
 export type Feature = z.infer<typeof featureSchema>;
+export type FeatureCollection = z.infer<typeof featureCollectionSchema>;
 export type FeatureView = z.infer<typeof featureViewSchema>;
 export type FeatureRes = z.infer<typeof featureResSchema>;
 export type GeocodeRes = z.infer<typeof geocodeResSchema>;

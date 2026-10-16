@@ -7,13 +7,6 @@ import {
 } from "discord-hono";
 import { Hono } from "hono";
 import { decode } from "pluscodes";
-import hasunosoraGeojsonl from "./public/generated/hasunosora.geojsonl";
-import ikizuliveGeojsonl from "./public/generated/ikizulive.geojsonl";
-import loveliveGeojsonl from "./public/generated/lovelive.geojsonl";
-import musicalGeojsonl from "./public/generated/musical.geojsonl";
-import nijigasakiGeojsonl from "./public/generated/nijigasaki.geojsonl";
-import sunshineGeojsonl from "./public/generated/sunshine.geojsonl";
-import superstarGeojsonl from "./public/generated/superstar.geojsonl";
 import seriesJson from "./public/series.json" with { type: "json" };
 import tagsJson from "./public/tags.json" with { type: "json" };
 import { checkMemberAge } from "./src/discord.ts";
@@ -23,7 +16,7 @@ import { createSpotPR } from "./src/github.ts";
 import { fetchImage } from "./src/image.ts";
 import {
 	type FeatureView,
-	featureSchema,
+	featureCollectionSchema,
 	seriesJSONSchema,
 	spotInputSchema,
 	tagsSchema,
@@ -34,42 +27,35 @@ const allTags = tagsSchema.parse(tagsJson);
 
 const getSeries = (id: string) => allSeries.find((s) => s.id === id);
 
-const geojsonlBySeriesId: Record<string, string> = {
-	lovelive: loveliveGeojsonl,
-	sunshine: sunshineGeojsonl,
-	nijigasaki: nijigasakiGeojsonl,
-	superstar: superstarGeojsonl,
-	hasunosora: hasunosoraGeojsonl,
-	musical: musicalGeojsonl,
-	ikizulive: ikizuliveGeojsonl,
-};
-
 const features: { type: "FeatureCollection"; features: FeatureView[] } = {
 	type: "FeatureCollection",
 	features: [],
 };
 
-for (const s of allSeries) {
-	const geojsonl = geojsonlBySeriesId[s.id];
-	if (geojsonl === undefined) {
-		console.error(`No geojsonl found for ${s.id}`);
-		continue;
-	}
-	const lines = geojsonl.split("\n").filter((line) => line.length > 0);
-	for (const line of lines) {
-		const parsed = featureSchema.safeParse(JSON.parse(line));
-		if (!parsed.success) {
-			console.error(`Invalid geojsonl line for ${s.id}:`, parsed.error);
-			continue;
+await Promise.all(
+	allSeries.map(async (s) => {
+		try {
+			const geojsonModule = await import(`./generated/${s.id}.geojson`, {
+				with: { type: "json" },
+			});
+			const parsed = featureCollectionSchema.safeParse(geojsonModule.default);
+			if (!parsed.success) {
+				console.error(`Invalid geojson for ${s.id}:`, parsed.error);
+				return;
+			}
+			for (const feature of parsed.data.features) {
+				features.features.push({
+					type: "Feature",
+					id: feature.id,
+					geometry: feature.geometry,
+					properties: { ...feature.properties, series: s },
+				});
+			}
+		} catch (err) {
+			console.error(`Failed to load geojson for ${s.id}:`, err);
 		}
-		features.features.push({
-			type: "Feature",
-			id: parsed.data.id,
-			geometry: parsed.data.geometry,
-			properties: { ...parsed.data.properties, series: s },
-		});
-	}
-}
+	}),
+);
 
 export const spotCommand = makeSlashCommand("spot", "聖地を投稿します").options(
 	[
@@ -219,7 +205,7 @@ app.get("/api/geocode", async (c) => {
 	);
 });
 
-app.get("/api/features", (c) => {
+app.get("/api/spots", (c) => {
 	const series = c.req.queries("series") ?? [];
 	const tags = c.req.queries("tags") ?? [];
 
@@ -237,6 +223,7 @@ app.get("/api/features", (c) => {
 	return c.body(
 		JSON.stringify(
 			{
+				type: "FeatureCollection",
 				features: result,
 			},
 			null,
