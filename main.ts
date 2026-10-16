@@ -1,6 +1,7 @@
 import {
 	DiscordHono,
 	makeAttachmentOption,
+	makeBooleanOption,
 	makeSlashCommand,
 	makeStringOption,
 	register,
@@ -69,6 +70,7 @@ export const spotCommand = makeSlashCommand("spot", "聖地を投稿します").
 			allTags.map((tag) => ({ name: tag, value: tag })),
 		),
 		makeAttachmentOption("image", "画像 (4MBまで)"),
+		makeBooleanOption("anonymous", "投稿者名を非公開にする"),
 	],
 );
 
@@ -82,6 +84,7 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 				description: c.var.description ?? null,
 				tags: c.var.tags ?? null,
 				image: c.var.image ?? null,
+				anonymous: c.var.anonymous ?? null,
 			});
 
 			if (!parsed.success) {
@@ -89,7 +92,8 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 				return;
 			}
 
-			const { series, title, plusCode, description, tags, image } = parsed.data;
+			const { series, title, plusCode, description, tags, image, anonymous } =
+				parsed.data;
 
 			const selectedTags = tags && allTags.includes(tags) ? [tags] : [];
 
@@ -144,6 +148,7 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 					description,
 					imageBytes,
 					tags: selectedTags,
+					anonymous: anonymous ?? false,
 					discordUsername: user.username,
 					discordUserId: user.id,
 				},

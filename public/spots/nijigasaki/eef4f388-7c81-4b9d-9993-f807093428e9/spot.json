@@ -1,22 +1,15 @@
 {
-  "type": "Feature",
-  "id": "eef4f388-7c81-4b9d-9993-f807093428e9",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      135.490188,
-      34.705312
-    ]
-  },
-  "properties": {
-    "title": "梅田スカイビル",
-    "author": "maril_445",
-    "description": "えいがさき2章に登場",
-    "image": [
-      "image.jpg"
-    ],
-    "tags": [
-      "映画"
-    ]
-  }
+	"type": "Feature",
+	"id": "eef4f388-7c81-4b9d-9993-f807093428e9",
+	"geometry": {
+		"type": "Point",
+		"coordinates": [135.490188, 34.705312]
+	},
+	"properties": {
+		"title": "梅田スカイビル",
+		"author": "maril_445",
+		"description": "えいがさき2章に登場",
+		"image": ["image.jpg"],
+		"tags": ["映画"]
+	}
 }

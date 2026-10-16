@@ -17,6 +17,7 @@ export type Variables = {
 	description?: string;
 	tags?: string;
 	image?: string;
+	anonymous?: boolean;
 };
 
 export type Env = { Bindings: Bindings; Variables: Variables };

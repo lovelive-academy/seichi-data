@@ -59,9 +59,12 @@ export async function createSpotPR(
 		},
 		properties: {
 			title: spot.title,
-			author: spot.discordUsername,
 		},
 	};
+
+	if (!spot.anonymous) {
+		newFeature.properties.author = spot.discordUsername;
+	}
 
 	if (spot.description) {
 		newFeature.properties.description = spot.description;

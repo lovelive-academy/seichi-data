@@ -7,6 +7,7 @@ export const spotInputSchema = z.object({
 	description: z.string().min(1).nullable(),
 	tags: z.string().min(1).nullable(),
 	image: z.string().min(1).nullable(),
+	anonymous: z.boolean().nullable(),
 });
 
 export interface SpotData {
@@ -17,6 +18,7 @@ export interface SpotData {
 	description: string | null;
 	tags: string[];
 	imageBytes: Uint8Array | null;
+	anonymous: boolean;
 	discordUsername: string;
 	discordUserId: string;
 }
