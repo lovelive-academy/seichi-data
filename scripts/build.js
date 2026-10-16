@@ -47,7 +47,7 @@ function main() {
 
 		writeFileSync(
 			`${outDir}/${s.id}.geojson`,
-			JSON.stringify({ type: "FeatureCollection", features }),
+			JSON.stringify({ type: "FeatureCollection", features }, null, 2),
 		);
 	}
 }
