@@ -5,7 +5,6 @@ import {
 	readFileSync,
 	writeFileSync,
 } from "node:fs";
-import { featureSchema, seriesJSONSchema } from "../src/schema.ts";
 
 function readSpotFeatures(seriesId, release) {
 	const dir = `public/spots/${seriesId}`;
@@ -19,11 +18,7 @@ function readSpotFeatures(seriesId, release) {
 		const spotPath = `${dir}/${uuid}/spot.json`;
 		if (!existsSync(spotPath)) continue;
 
-		const parsed = featureSchema.safeParse(
-			JSON.parse(readFileSync(spotPath, "utf-8")),
-		);
-		const feature = parsed.data;
-		if (!feature) continue;
+		const feature = JSON.parse(readFileSync(spotPath, "utf-8"));
 		if (feature.properties.image) {
 			feature.properties.image = feature.properties.image.map(
 				(filename) => `spots/${seriesId}/${uuid}/${filename}`,
@@ -43,15 +38,11 @@ function main() {
 	const release = args.includes("--release");
 	const outDir = release ? "release-data" : "generated";
 
-	const parsed = seriesJSONSchema.safeParse(
-		JSON.parse(readFileSync("public/series.json", "utf-8")),
-	);
-	const series = parsed.data?.series;
+	const data = JSON.parse(readFileSync("public/series.json", "utf-8"));
 
-	if (!series) return;
 	mkdirSync(outDir, { recursive: true });
 
-	for (const s of series) {
+	for (const s of data.series) {
 		const features = readSpotFeatures(s.id, release);
 
 		writeFileSync(

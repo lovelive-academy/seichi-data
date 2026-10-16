@@ -41,6 +41,9 @@ const Card = (props: Props) => {
 			<Show when={props.feature.properties.description}>
 				<p class="card-text">{props.feature.properties.description}</p>
 			</Show>
+			<Show when={props.feature.properties.author}>
+				<p class="card-text">投稿者: {props.feature.properties.author}</p>
+			</Show>
 			<dialog open={imageModalOpen()}>
 				<article class="image-modal-panel">
 					<header>
