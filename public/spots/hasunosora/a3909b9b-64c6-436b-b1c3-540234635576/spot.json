@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "a3909b9b-64c6-436b-b1c3-540234635576",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      136.671062,
+      36.569437
+    ]
+  },
+  "properties": {
+    "title": "卯辰山",
+    "author": "sakotina",
+    "description": "蓮ノ空の始まりの場所",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
