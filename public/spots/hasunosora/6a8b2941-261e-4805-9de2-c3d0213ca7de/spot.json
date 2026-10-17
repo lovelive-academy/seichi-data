@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": "6a8b2941-261e-4805-9de2-c3d0213ca7de",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      136.649563,
+      36.578437
+    ]
+  },
+  "properties": {
+    "title": "金沢駅",
+    "author": "sakotina"
+  }
+}
