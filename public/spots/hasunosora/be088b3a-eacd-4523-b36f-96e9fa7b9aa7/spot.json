@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "be088b3a-eacd-4523-b36f-96e9fa7b9aa7",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      136.676313,
+      36.567438
+    ]
+  },
+  "properties": {
+    "title": "卯辰山 見晴らし台",
+    "author": "chekwasha",
+    "description": "様々な夢に関わったり集合写真が撮られがちな場所",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
