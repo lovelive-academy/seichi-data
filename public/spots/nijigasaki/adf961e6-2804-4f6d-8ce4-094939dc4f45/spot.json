@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "adf961e6-2804-4f6d-8ce4-094939dc4f45",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -0.077812,
+      51.504688
+    ]
+  },
+  "properties": {
+    "title": "ザ・クィーンズ・ウォーク",
+    "author": "fuyu39",
+    "description": "歩夢とアイラ・ペネロペが出会った場所",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
