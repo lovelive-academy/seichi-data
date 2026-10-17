@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "07377fc2-e7f2-4288-9c3f-a934b7c92d53",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      12.334188,
+      45.434813
+    ]
+  },
+  "properties": {
+    "title": "コンタリーニ・デル・ボヴォロ",
+    "author": "kikyou395",
+    "description": "ボヴォロ…コンタリーニ・デル・ボヴォロだって！！"
+  }
+}
