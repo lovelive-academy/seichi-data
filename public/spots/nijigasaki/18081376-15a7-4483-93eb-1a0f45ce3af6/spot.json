@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "18081376-15a7-4483-93eb-1a0f45ce3af6",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -0.079437,
+      51.504688
+    ]
+  },
+  "properties": {
+    "title": "タワー•ブリッジ",
+    "author": "fuyu39",
+    "description": "NEXT SKYに登場",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
