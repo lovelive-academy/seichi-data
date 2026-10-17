@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "d465f63e-3652-4e74-9576-1e76d0da49b1",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      138.890188,
+      35.033063
+    ]
+  },
+  "properties": {
+    "title": "あわしまマリンパーク カエル館",
+    "author": "yukimikan173",
+    "description": "松浦果南の実家、ダイビングショップ「Dolphin House」のモデル",
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
