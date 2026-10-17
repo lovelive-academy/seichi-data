@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "48d5d464-2646-422f-b297-392cf61a5224",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      131.158188,
+      33.281437
+    ]
+  },
+  "properties": {
+    "title": "豊後森機関庫",
+    "author": "shengkiruxiwang",
+    "description": "HAPPY PARTY TRAINのMV",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
