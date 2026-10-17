@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "id": "6d7ad6ce-1f8f-4a7f-8550-e7dffda72526",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      135.496688,
+      34.661438
+    ]
+  },
+  "properties": {
+    "title": "難波八坂神社",
+    "description": "あー。ラブライブ！虹ヶ咲学園スクールアイドル同好会　完結編　第2章のめっちゃ可愛いシーン。",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
