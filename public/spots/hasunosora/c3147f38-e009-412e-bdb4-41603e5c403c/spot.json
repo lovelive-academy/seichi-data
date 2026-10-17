@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "c3147f38-e009-412e-bdb4-41603e5c403c",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      136.671062,
+      36.569437
+    ]
+  },
+  "properties": {
+    "title": "近江町市場",
+    "author": "sakotina",
+    "description": "DOLLCHESTRA",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
