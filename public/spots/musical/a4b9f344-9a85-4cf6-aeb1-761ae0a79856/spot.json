@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "a4b9f344-9a85-4cf6-aeb1-761ae0a79856",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.627437,
+      35.324937
+    ]
+  },
+  "properties": {
+    "title": "関東学院大学",
+    "author": "shapeofnagara",
+    "description": "ラブライブ！スクールアイドルミュージカル the DRAMA 撮影地(椿咲花女子高等学校)"
+  }
+}
