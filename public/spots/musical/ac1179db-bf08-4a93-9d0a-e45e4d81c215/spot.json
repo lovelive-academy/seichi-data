@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "ac1179db-bf08-4a93-9d0a-e45e4d81c215",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.623938,
+      35.323187
+    ]
+  },
+  "properties": {
+    "title": "関東学院大学 横浜・金沢八景キャンパス Forsight21",
+    "author": "shapeofnagara",
+    "description": "ラブライブ！スクールアイドルミュージカル the DRAMA 撮影地 (滝桜女学院高等学校・外観)"
+  }
+}
