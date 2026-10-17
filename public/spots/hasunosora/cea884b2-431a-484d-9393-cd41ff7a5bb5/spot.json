@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": "cea884b2-431a-484d-9393-cd41ff7a5bb5",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      137.856563,
+      36.200063
+    ]
+  },
+  "properties": {
+    "title": "波田駅",
+    "description": "瑞河女子高等学校最寄り駅"
+  }
+}
