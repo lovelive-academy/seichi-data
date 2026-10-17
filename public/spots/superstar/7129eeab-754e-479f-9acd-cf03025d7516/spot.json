@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "7129eeab-754e-479f-9acd-cf03025d7516",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      121.486062,
+      31.241688
+    ]
+  },
+  "properties": {
+    "title": "外灘",
+    "author": "akku4405",
+    "description": "星屑クルージング",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
