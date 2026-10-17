@@ -1,0 +1,22 @@
+{
+  "type": "Feature",
+  "id": "d8ca3345-5f48-4e3c-a5a0-baae487fe350",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      135.499063,
+      34.703437
+    ]
+  },
+  "properties": {
+    "title": "バアドケージ 徒町小鈴 特訓前",
+    "author": "tadonoconanzuki",
+    "description": "Link！Like！ラブライブ！のカードイラストにて描写。3rd大阪DOLLCHESTRA公演に紐づいたカードイラスト。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "その他"
+    ]
+  }
+}
