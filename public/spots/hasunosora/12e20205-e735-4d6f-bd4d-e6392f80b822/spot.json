@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "12e20205-e735-4d6f-bd4d-e6392f80b822",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      136.524813,
+      36.536188
+    ]
+  },
+  "properties": {
+    "title": "#LOVE",
+    "author": "chekwasha",
+    "description": "「夏めきペイン」(蓮ノ空1stアルバム)ジャケットイラスト等",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
