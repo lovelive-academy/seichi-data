@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": "6875d868-832f-4e22-9a34-0cc07ee47027",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.762938,
+      35.653938
+    ]
+  },
+  "properties": {
+    "title": "竹芝桟橋",
+    "author": "subroh_0508"
+  }
+}
