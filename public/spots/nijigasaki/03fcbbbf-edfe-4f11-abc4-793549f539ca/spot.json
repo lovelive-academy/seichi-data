@@ -1,0 +1,22 @@
+{
+  "type": "Feature",
+  "id": "03fcbbbf-edfe-4f11-abc4-793549f539ca",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.163562,
+      36.813813
+    ]
+  },
+  "properties": {
+    "title": "test",
+    "author": "maril_445",
+    "description": "test2",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
