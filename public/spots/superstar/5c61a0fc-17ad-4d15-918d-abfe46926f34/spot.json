@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "5c61a0fc-17ad-4d15-918d-abfe46926f34",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      140.161437,
+      35.980688
+    ]
+  },
+  "properties": {
+    "title": "柏田神社",
+    "author": "fighting_call",
+    "description": "ラブライブ！スーパースター!!2期11話において、夏美と冬毬が参拝していた神社。",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
