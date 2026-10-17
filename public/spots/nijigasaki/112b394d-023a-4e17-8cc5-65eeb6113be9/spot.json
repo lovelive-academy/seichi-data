@@ -1,0 +1,22 @@
+{
+  "type": "Feature",
+  "id": "112b394d-023a-4e17-8cc5-65eeb6113be9",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.780562,
+      35.625187
+    ]
+  },
+  "properties": {
+    "title": "ヴィーナスフォート（VenusFort）",
+    "author": "itotakamist",
+    "description": "QU4RTZのSing & Smile!!の聖地 (ヴィーナスフォートは閉店したので入れません)",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "ライブ会場"
+    ]
+  }
+}
