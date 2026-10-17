@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "c291350f-3d2f-421d-abe8-b4246c52d264",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.426563,
+      35.621812
+    ]
+  },
+  "properties": {
+    "title": "パルテノン多摩 小ホール",
+    "author": "shapeofnagara",
+    "description": "ラブライブ！スクールアイドルミュージカル the DRAMA 撮影地 (滝桜女学院高等学校講堂ホール？)"
+  }
+}
