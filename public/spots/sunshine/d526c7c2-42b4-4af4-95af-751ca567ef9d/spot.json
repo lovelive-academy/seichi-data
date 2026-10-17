@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "id": "d526c7c2-42b4-4af4-95af-751ca567ef9d",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      138.893563,
+      35.017313
+    ]
+  },
+  "properties": {
+    "title": "大川家長屋門",
+    "description": "黒澤姉妹の自宅のモデル",
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
