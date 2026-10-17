@@ -10,7 +10,6 @@ import { Hono } from "hono";
 import { decode } from "pluscodes";
 import seriesJson from "./public/series.json" with { type: "json" };
 import tagsJson from "./public/tags.json" with { type: "json" };
-import { checkMemberAge } from "./src/discord.ts";
 import type { Bindings, Env } from "./src/env.ts";
 import { findLocation } from "./src/geocode.ts";
 import { createSpotPR } from "./src/github.ts";
@@ -111,6 +110,7 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 			const user = c.interaction.member?.user ?? c.interaction.user;
 			if (!user) throw new Error("No user in interaction");
 
+			/*
 			const isEligible = await checkMemberAge(user.id, c.env);
 			if (!isEligible) {
 				await c.followup(
@@ -118,6 +118,7 @@ const bot = new DiscordHono<Env>().command("spot", (c) =>
 				);
 				return;
 			}
+      */
 
 			const coords = decode(plusCode);
 			if (!coords) {
