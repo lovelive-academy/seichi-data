@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "d9d8a244-ba0a-4ed4-9342-3c3f0086be26",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.637438,
+      35.462063
+    ]
+  },
+  "properties": {
+    "title": "臨港パーク 潮入りの池",
+    "author": "shapeofnagara",
+    "description": "ラブライブ！スクールアイドルミュージカル the DRAMA 撮影地 (ハーバーランド)"
+  }
+}
