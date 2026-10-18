@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "ac290bdd-b417-4434-b9fc-19e254c8cc5d",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      16.369813,
+      48.208687
+    ]
+  },
+  "properties": {
+    "title": "ペスト記念柱",
+    "author": "fighting_call",
+    "description": "ラブライブ！スーパースター!!2期11話で登場した、マルガレーテのSNSアカウントのヘッダーの撮影地"
+  }
+}
