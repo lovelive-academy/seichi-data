@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "3ff6cb24-bea3-4c3c-863e-0aca2cf8c903",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.758188,
+      35.704188
+    ]
+  },
+  "properties": {
+    "title": "本郷二丁目歩道橋",
+    "author": "yukimikan173",
+    "description": "2期12話でAqoursがアキバドーム(東京ドーム)に向かってこの歩道橋から走り出す。",
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
