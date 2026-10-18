@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": "107c47f1-4b26-4768-8036-c53aa5283759",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      137.963688,
+      36.231063
+    ]
+  },
+  "properties": {
+    "title": "松本駅アルプス口",
+    "description": "105期8話"
+  }
+}
