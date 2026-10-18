@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "46f672b3-222e-442d-a38c-ebf73ac57841",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      139.704937,
+      35.669313
+    ]
+  },
+  "properties": {
+    "title": "ラフォーレ原宿裏口",
+    "author": "pappu3059",
+    "description": "Link ! Like! ラブライブ! カードイラスト365 Days 藤島慈(特訓前)2024年5月頃めぐちゃんが修学旅行で原宿へ友達と遊びに来たときに撮られた写真。",
+    "image": [
+      "image.jpg"
+    ]
+  }
+}
