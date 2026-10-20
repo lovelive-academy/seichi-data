@@ -1,0 +1,22 @@
+{
+  "type": "Feature",
+  "id": "02eff9b3-700b-47d4-a229-6d8ad3fd7f90",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      138.879688,
+      35.019437
+    ]
+  },
+  "properties": {
+    "title": "cafe 海のステージ",
+    "author": "yukimikan173",
+    "description": "アニメーションPV「smile smile ship Start!」に登場する船のモデルとなったスカンジナビア号が停泊していた場所。電撃G's magazine内の企画「はらぺこAqours!」で渡辺曜がハンバーグを食べていたのもこの場所。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "歌詞"
+    ]
+  }
+}
