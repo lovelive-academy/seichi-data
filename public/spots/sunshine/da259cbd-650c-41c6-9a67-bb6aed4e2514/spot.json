@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "da259cbd-650c-41c6-9a67-bb6aed4e2514",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      136.884438,
+      35.168938
+    ]
+  },
+  "properties": {
+    "title": "ナナちゃん人形",
+    "author": "yukimikan173",
+    "description": "1期13話で黄金のナナちゃん人形…らしきものが登場。だぎゃあ〜。しかし、劇場版の宣伝で本物のナナちゃん人形が千歌ちゃんのコスプレをしたことも。",
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
