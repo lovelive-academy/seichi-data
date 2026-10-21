@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "id": "a63fa09f-eb0a-4197-acd2-73b8b0d17c34",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      135.499063,
+      34.708437
+    ]
+  },
+  "properties": {
+    "title": "梅田芸術劇場",
+    "author": "shapeofnagara",
+    "description": "作中にて、滝桜女学院芸能コースアイドル部のライブが行われる。また、初演大阪公演会場。"
+  }
+}
