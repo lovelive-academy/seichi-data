@@ -1,0 +1,22 @@
+{
+  "type": "Feature",
+  "id": "e4755f0a-d8ef-471a-85d9-6da76947aaac",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      138.876313,
+      35.066063
+    ]
+  },
+  "properties": {
+    "title": "島郷海水浴場",
+    "author": "yukimikan173",
+    "description": "メンバーが練習中に1期3話で鞠莉が、劇場版では鞠莉ママがヘリコプターで降り立った海岸。1期9話では、ダイヤが砂浜に「Aqours」と刻んで命名したのもこの場所。",
+    "image": [
+      "image.jpg"
+    ],
+    "tags": [
+      "アニメ"
+    ]
+  }
+}
